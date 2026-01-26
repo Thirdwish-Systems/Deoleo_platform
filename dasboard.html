@@ -1,0 +1,765 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Deoleo. Líder Mundial del Aceite de Oliva</title>
+    <!-- Favicon icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/favicon.png"
+    />
+    <link
+      href="./vendor/pg-calendar/css/pignose.calendar.min.css"
+      rel="stylesheet"
+    />
+    <link href="./vendor/chartist/css/chartist.min.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+      <div class="sk-three-bounce">
+        <div class="sk-child sk-bounce1"></div>
+        <div class="sk-child sk-bounce2"></div>
+        <div class="sk-child sk-bounce3"></div>
+      </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+      <!--**********************************
+            Nav header start
+        ***********************************-->
+      <div
+        class="nav-header"
+        style="
+          background: #52525c;
+          padding: 15px 20px;
+          border-bottom: 2px solid #fdfdfd;
+        "
+      >
+        <a href="dasboard.html" class="brand-logo">
+          <img
+            src="./images/logogris.webp"
+            alt="Deoleo"
+            style="width: 160px; filter: brightness(3.5) contrast(0.8)"
+          />
+        </a>
+      </div>
+      <!--**********************************
+            Nav header end
+        ***********************************-->
+
+      <!--**********************************
+            Header start
+        ***********************************-->
+      <div class="header">
+        <div class="header-content">
+          <nav class="navbar navbar-expand">
+            <div class="collapse navbar-collapse justify-content-between">
+              <div class="header-left">
+                <div class="search_bar dropdown">
+                  <span
+                    class="search_icon p-3 c-pointer"
+                    data-toggle="dropdown"
+                  >
+                    <i class="mdi mdi-magnify"></i>
+                  </span>
+                  <div class="dropdown-menu p-0 m-0">
+                    <form>
+                      <input
+                        class="form-control"
+                        type="search"
+                        placeholder="Buscar empleado..."
+                        aria-label="Search"
+                      />
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <ul class="navbar-nav header-right">
+                <li class="nav-item dropdown notification_dropdown">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    role="button"
+                    data-toggle="dropdown"
+                  >
+                    <i class="mdi mdi-bell"></i>
+                    <div class="pulse-css"></div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <ul class="list-unstyled">
+                      <li class="media dropdown-item">
+                        <span class="success"><i class="ti-user"></i></span>
+                        <div class="media-body">
+                          <a href="#">
+                            <p>
+                              <strong>Nuevo contrato</strong> para Carlos Ruiz
+                              en IT
+                            </p>
+                          </a>
+                        </div>
+                        <span class="notify-time">10:30 am</span>
+                      </li>
+                      <li class="media dropdown-item">
+                        <span class="primary"><i class="ti-calendar"></i></span>
+                        <div class="media-body">
+                          <a href="#">
+                            <p>
+                              <strong>Solicitud de vacaciones</strong> de Laura
+                              Méndez
+                            </p>
+                          </a>
+                        </div>
+                        <span class="notify-time">09:15 am</span>
+                      </li>
+                      <li class="media dropdown-item">
+                        <span class="danger"><i class="ti-alert"></i></span>
+                        <div class="media-body">
+                          <a href="#">
+                            <p>
+                              <strong>Incidencia reportada</strong> baja médica
+                            </p>
+                          </a>
+                        </div>
+                        <span class="notify-time">08:45 am</span>
+                      </li>
+                      <li class="media dropdown-item">
+                        <span class="primary"><i class="ti-book"></i></span>
+                        <div class="media-body">
+                          <a href="#">
+                            <p>
+                              <strong>Formación completada</strong> por 15
+                              empleados
+                            </p>
+                          </a>
+                        </div>
+                        <span class="notify-time">Ayer</span>
+                      </li>
+                      <li class="media dropdown-item">
+                        <span class="success"><i class="ti-email"></i></span>
+                        <div class="media-body">
+                          <a href="#">
+                            <p>
+                              <strong>Evaluación de desempeño</strong> pendiente
+                              de revisión
+                            </p>
+                          </a>
+                        </div>
+                        <span class="notify-time">Ayer</span>
+                      </li>
+                    </ul>
+                    <a class="all-notification" href="#"
+                      >Ver todas las notificaciones
+                      <i class="ti-arrow-right"></i
+                    ></a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown header-profile">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    role="button"
+                    data-toggle="dropdown"
+                  >
+                    <i class="mdi mdi-account"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a href="#" class="dropdown-item">
+                      <i class="icon-user"></i>
+                      <span class="ml-2">Mi Perfil</span>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="icon-envelope-open"></i>
+                      <span class="ml-2">Mensajes</span>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="icon-settings"></i>
+                      <span class="ml-2">Configuración</span>
+                    </a>
+                    <a href="index.html" class="dropdown-item">
+                      <i class="icon-key"></i>
+                      <span class="ml-2">Cerrar Sesión</span>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+      <!--**********************************
+            Sidebar start
+        ***********************************-->
+      <div class="quixnav">
+        <div class="quixnav-scroll">
+          <ul class="metismenu" id="menu">
+            <li class="nav-label first"></li>
+
+            <li>
+              <a href="dasboard.html" aria-expanded="false">
+                <i class="icon icon-single-04"></i>
+                <span class="nav-text">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-label">INTELIGENCIA ARTIFICIAL</li>
+            <li>
+              <a href="inteligencia.html" aria-expanded="false">
+                <i class="icon icon-world-2"></i>
+                <span class="nav-text">Informes con IA</span>
+              </a>
+            </li>
+            <li class="nav-label">ANALTICS</li>
+            <li>
+              <a href="kpis.html" aria-expanded="false">
+                <i class="icon icon-world-2"></i>
+                <span class="nav-text">KPIs interactivos</span>
+              </a>
+            </li>
+            <li class="nav-label">CENTRO DE ALERTAS</li>
+            <li>
+              <a href="alertas.html" aria-expanded="false">
+                <i class="icon icon-world-2"></i>
+                <span class="nav-text">Alertas</span>
+              </a>
+            </li>
+
+            <li class="nav-label">Gestión de Personal</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-app-store"></i>
+                <span class="nav-text">Empleados</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Lista de Empleados</a></li>
+                <li><a href="#">Fichas Personales</a></li>
+                <li>
+                  <a
+                    class="has-arrow"
+                    href="javascript:void()"
+                    aria-expanded="false"
+                    >Contratos</a
+                  >
+                  <ul aria-expanded="false">
+                    <li><a href="#">Nuevo Contrato</a></li>
+                    <li><a href="#">Contratos Activos</a></li>
+                    <li><a href="#">Renovaciones</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Bajas y Altas</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-calendar-60"></i>
+                <span class="nav-text">Ausencias</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Vacaciones</a></li>
+                <li><a href="#">Bajas Médicas</a></li>
+                <li><a href="#">Permisos</a></li>
+                <li><a href="#">Calendario</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Nóminas y Retribución</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-chart-bar-33"></i>
+                <span class="nav-text">Nóminas</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Generar Nóminas</a></li>
+                <li><a href="#">Histórico</a></li>
+                <li><a href="#">Incentivos</a></li>
+                <li><a href="#">Retribución Flexible</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-money-coins"></i>
+                <span class="nav-text">Compensación</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Estructura Salarial</a></li>
+                <li><a href="#">Beneficios</a></li>
+                <li><a href="#">Bonos</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Desarrollo y Formación</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-world-2"></i>
+                <span class="nav-text">Formación</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Plan de Formación</a></li>
+                <li><a href="#">Cursos Disponibles</a></li>
+                <li><a href="#">Seguimiento</a></li>
+                <li><a href="#">Certificaciones</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-single-copy-06"></i>
+                <span class="nav-text">Evaluación</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Desempeño</a></li>
+                <li><a href="#">Objetivos</a></li>
+                <li><a href="#">Competencias</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Procesos RRHH</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-plug"></i>
+                <span class="nav-text">Reclutamiento</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Ofertas de Empleo</a></li>
+                <li><a href="#">Candidatos</a></li>
+                <li><a href="#">Entrevistas</a></li>
+                <li><a href="#">Onboarding</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-form"></i>
+                <span class="nav-text">Documentación</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Contratos</a></li>
+                <li><a href="#">Certificados</a></li>
+                <li><a href="#">Informes</a></li>
+                <li><a href="#">Plantillas</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Configuración</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-layout-25"></i>
+                <span class="nav-text">Configuración</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Departamentos</a></li>
+                <li><a href="#">Puestos de Trabajo</a></li>
+                <li><a href="#">Usuarios</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Sistema</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-single-copy-06"></i>
+                <span class="nav-text">Sistema</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Mi Perfil</a></li>
+                <li><a href="#">Configuración</a></li>
+                <li><a href="#">Cerrar Sesión</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+      <!--**********************************
+            Content body start
+        ***********************************-->
+      <div class="content-body">
+        <div class="container-fluid">
+          <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+              <div class="welcome-text">
+                <h4 style="color: #0f5c00">
+                  ¡Hola, bienvenido Juan Moleres Vidalo
+                </h4>
+                <p class="mb-0">Panel de Control de Recursos Humanos</p>
+              </div>
+            </div>
+            <div
+              class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex"
+            >
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item active">
+                  <a href="javascript:void(0)">Dashboard RRHH</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a href="javascript:void(0)">RRHH</a>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-3 col-sm-6">
+              <div class="card">
+                <div class="stat-widget-one card-body">
+                  <div class="stat-icon d-inline-block">
+                    <i class="ti-user text-success border-success"></i>
+                  </div>
+                  <div class="stat-content d-inline-block">
+                    <div class="stat-text">Total Empleados</div>
+                    <div class="stat-digit">247</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="card">
+                <div class="stat-widget-one card-body">
+                  <div class="stat-icon d-inline-block">
+                    <i class="ti-plus text-primary border-primary"></i>
+                  </div>
+                  <div class="stat-content d-inline-block">
+                    <div class="stat-text">Nuevos Contratos</div>
+                    <div class="stat-digit">12</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="card">
+                <div class="stat-widget-one card-body">
+                  <div class="stat-icon d-inline-block">
+                    <i class="ti-calendar text-pink border-pink"></i>
+                  </div>
+                  <div class="stat-content d-inline-block">
+                    <div class="stat-text">Vacaciones Activas</div>
+                    <div class="stat-digit">34</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="card">
+                <div class="stat-widget-one card-body">
+                  <div class="stat-icon d-inline-block">
+                    <i class="ti-alert text-danger border-danger"></i>
+                  </div>
+                  <div class="stat-content d-inline-block">
+                    <div class="stat-text">Incidencias</div>
+                    <div class="stat-digit">8</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Nóminas y Gastos de Personal</h4>
+                </div>
+                <div class="card-body">
+                  <div class="ct-bar-chart mt-5"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Distribución por Departamentos</h4>
+                  <div class="ct-pie-chart"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Book Mensual RRHH</h4>
+                  <span class="badge badge-primary">Febrero 2026</span>
+                </div>
+                <div class="card-body">
+                  <div
+                    class="text-center p-4"
+                    style="
+                      border: 2px dashed #ddd;
+                      border-radius: 10px;
+                      background: #f9f9f9;
+                    "
+                  >
+                    <i
+                      class="ti-book"
+                      style="font-size: 50px; color: #0f5c00"
+                    ></i>
+                    <h5 class="mt-3">Resumen Ejecutivo de Gestión</h5>
+                    <p class="text-muted">
+                      Descarga el reporte completo de KPIs, evolución de
+                      plantilla y objetivos del mes.
+                    </p>
+                    <a
+                      href="docs/Book_Octubre_24.pdf"
+                      target="_blank"
+                      class="btn btn-primary mt-2"
+                      style="background-color: #bfcd31; border-color: #0f5c00"
+                    >
+                      <i class="ti-download mr-2"></i> Descargar PDF
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">
+                    AI Highlights
+                    <span class="badge badge-xs badge-info ml-2">Beta AI</span>
+                  </h4>
+                </div>
+                <div class="card-body">
+                  <div
+                    class="ai-insight-item mb-3 p-3"
+                    style="border-left: 4px solid #bfcd31; background: #fbfee7"
+                  >
+                    <h6 class="text-dark">
+                      <i class="ti-check-box mr-2"></i>Predicción de Rotación
+                    </h6>
+                    <p class="mb-0 mt-1 small">
+                      Se detecta un riesgo leve de rotación en el departamento
+                      de <strong>IT</strong> para el próximo trimestre. Se
+                      recomienda revisar planes de carrera.
+                    </p>
+                  </div>
+
+                  <div
+                    class="ai-insight-item mb-3 p-3"
+                    style="border-left: 4px solid #0f5c00; background: #f4faf2"
+                  >
+                    <h6 class="text-dark">
+                      <i class="ti-check-box mr-2"></i>Eficiencia en
+                      Contratación
+                    </h6>
+                    <p class="mb-0 mt-1 small">
+                      El tiempo de cobertura de vacantes ha disminuido un
+                      <strong>12%</strong> respecto al mes anterior gracias al
+                      nuevo portal.
+                    </p>
+                  </div>
+
+                  <div
+                    class="ai-insight-item p-3"
+                    style="border-left: 4px solid #52525c; background: #f6f6f7"
+                  >
+                    <h6 class="text-dark">
+                      <i class="ti-check-box mr-2"></i>Sugerencia de Formación
+                    </h6>
+                    <p class="mb-0 mt-1 small">
+                      El 80% del equipo de Ventas ha completado el módulo
+                      básico. Es buen momento para lanzar el nivel avanzado.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Calendario RRHH</h4>
+                  <div class="year-calendar"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Solicitudes Recientes</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table student-data-table m-t-20">
+                      <thead>
+                        <tr>
+                          <th>Empleado</th>
+                          <th>Tipo</th>
+                          <th>Fecha</th>
+                          <th>Estado</th>
+                          <th>Departamento</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Laura Méndez</td>
+                          <td>Vacaciones</td>
+                          <td>15/01/2024</td>
+                          <td>
+                            <span class="badge badge-success">Aprobado</span>
+                          </td>
+                          <td>Marketing</td>
+                        </tr>
+                        <tr>
+                          <td>Pedro Sánchez</td>
+                          <td>Formación</td>
+                          <td>14/01/2024</td>
+                          <td>
+                            <span class="badge badge-warning">Pendiente</span>
+                          </td>
+                          <td>IT</td>
+                        </tr>
+                        <tr>
+                          <td>Ana Torres</td>
+                          <td>Teletrabajo</td>
+                          <td>13/01/2024</td>
+                          <td>
+                            <span class="badge badge-success">Aprobado</span>
+                          </td>
+                          <td>Ventas</td>
+                        </tr>
+                        <tr>
+                          <td>Miguel Ángel</td>
+                          <td>Baja Médica</td>
+                          <td>12/01/2024</td>
+                          <td>
+                            <span class="badge badge-danger">En revisión</span>
+                          </td>
+                          <td>Producción</td>
+                        </tr>
+                        <tr>
+                          <td>Elena Castro</td>
+                          <td>Cambio Turno</td>
+                          <td>11/01/2024</td>
+                          <td>
+                            <span class="badge badge-success">Aprobado</span>
+                          </td>
+                          <td>Calidad</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--**********************************
+            Content body end
+        ***********************************-->
+
+      <!--**********************************
+            Footer start
+        ***********************************-->
+      <div class="footer">
+        <div class="copyright">
+          <div class="d-flex align-items-center justify-content-center">
+            <p class="mb-0">© 2026 Deoleo S.A. - Sistema de Recursos Humanos</p>
+          </div>
+          <p class="mt-2 mb-0">
+            <small>
+              <a href="#" style="color: #0f5c00">Política de Privacidad</a> |
+              <a href="#" style="color: #0f5c00">Aviso Legal</a>
+            </small>
+          </p>
+        </div>
+      </div>
+      <!--**********************************
+            Footer end
+        ***********************************-->
+
+      <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+      <!--**********************************
+           Support ticket button end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="./vendor/global/global.min.js"></script>
+    <script src="./js/quixnav-init.js"></script>
+    <script src="./js/custom.min.js"></script>
+
+    <script src="./vendor/chartist/js/chartist.min.js"></script>
+
+    <script src="./vendor/moment/moment.min.js"></script>
+    <script src="./vendor/pg-calendar/js/pignose.calendar.min.js"></script>
+
+    <script src="./js/dashboard/dashboard-2.js"></script>
+    <!-- Circle progress -->
+  </body>
+</html>

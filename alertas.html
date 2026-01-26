@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Deoleo - Centro de Alertas de Negocio</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <style>
+      .alert-card { border-left: 5px solid; transition: transform 0.2s; }
+      .alert-card:hover { transform: scale(1.02); }
+      .bg-critical { border-left-color: #f35757 !important; background-color: #fff5f5; } /* Rojo > 10% */
+      .bg-warning { border-left-color: #f3bb57 !important; background-color: #fffaf0; }  /* Ámbar 5-10% */
+      .bg-info { border-left-color: #52525c !important; background-color: #f6f6f7; }     /* Informativo */
+      .deviation-badge { font-weight: bold; font-size: 0.9rem; }
+      .text-critical { color: #d93025; }
+      .text-warning { color: #f29900; }
+    </style>
+  </head>
+
+  <body>
+    <div id="preloader"><div class="sk-three-bounce"><div class="sk-child sk-bounce1"></div><div class="sk-child sk-bounce2"></div><div class="sk-child sk-bounce3"></div></div></div>
+
+    <div id="main-wrapper">
+      <div class="nav-header" style="background: #52525c; padding: 15px 20px; border-bottom: 2px solid #fdfdfd;">
+        <a href="dasboard.html" class="brand-logo">
+          <img src="./images/logogris.webp" alt="Deoleo" style="width: 160px; filter: brightness(3.5) contrast(0.8)" />
+        </a>
+      </div>
+
+      <div class="header">
+        <div class="header-content">
+          <nav class="navbar navbar-expand">
+            <div class="collapse navbar-collapse justify-content-between">
+              <div class="header-left">
+                <div class="search_bar dropdown">
+                  <span
+                    class="search_icon p-3 c-pointer"
+                    data-toggle="dropdown"
+                  >
+                    <i class="mdi mdi-magnify"></i>
+                  </span>
+                  <div class="dropdown-menu p-0 m-0">
+                    <form>
+                      <input
+                        class="form-control"
+                        type="search"
+                        placeholder="Buscar empleado..."
+                        aria-label="Search"
+                      />
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <ul class="navbar-nav header-right">
+                <li class="nav-item dropdown notification_dropdown">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    role="button"
+                    data-toggle="dropdown"
+                  >
+                    <i class="mdi mdi-bell"></i>
+                    <div class="pulse-css"></div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <ul class="list-unstyled">
+                      <li class="media dropdown-item">
+                        <span class="success"><i class="ti-user"></i></span>
+                        <div class="media-body">
+                          <a href="#">
+                            <p>
+                              <strong>Nuevo contrato</strong> para Carlos Ruiz
+                              en IT
+                            </p>
+                          </a>
+                        </div>
+                        <span class="notify-time">10:30 am</span>
+                      </li>
+                      <li class="media dropdown-item">
+                        <span class="primary"><i class="ti-calendar"></i></span>
+                        <div class="media-body">
+                          <a href="#">
+                            <p>
+                              <strong>Solicitud de vacaciones</strong> de Laura
+                              Méndez
+                            </p>
+                          </a>
+                        </div>
+                        <span class="notify-time">09:15 am</span>
+                      </li>
+                      <li class="media dropdown-item">
+                        <span class="danger"><i class="ti-alert"></i></span>
+                        <div class="media-body">
+                          <a href="#">
+                            <p>
+                              <strong>Incidencia reportada</strong> baja médica
+                            </p>
+                          </a>
+                        </div>
+                        <span class="notify-time">08:45 am</span>
+                      </li>
+                      <li class="media dropdown-item">
+                        <span class="primary"><i class="ti-book"></i></span>
+                        <div class="media-body">
+                          <a href="#">
+                            <p>
+                              <strong>Formación completada</strong> por 15
+                              empleados
+                            </p>
+                          </a>
+                        </div>
+                        <span class="notify-time">Ayer</span>
+                      </li>
+                      <li class="media dropdown-item">
+                        <span class="success"><i class="ti-email"></i></span>
+                        <div class="media-body">
+                          <a href="#">
+                            <p>
+                              <strong>Evaluación de desempeño</strong> pendiente
+                              de revisión
+                            </p>
+                          </a>
+                        </div>
+                        <span class="notify-time">Ayer</span>
+                      </li>
+                    </ul>
+                    <a class="all-notification" href="#"
+                      >Ver todas las notificaciones
+                      <i class="ti-arrow-right"></i
+                    ></a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown header-profile">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    role="button"
+                    data-toggle="dropdown"
+                  >
+                    <i class="mdi mdi-account"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a href="#" class="dropdown-item">
+                      <i class="icon-user"></i>
+                      <span class="ml-2">Mi Perfil</span>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="icon-envelope-open"></i>
+                      <span class="ml-2">Mensajes</span>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="icon-settings"></i>
+                      <span class="ml-2">Configuración</span>
+                    </a>
+                    <a href="index.html" class="dropdown-item">
+                      <i class="icon-key"></i>
+                      <span class="ml-2">Cerrar Sesión</span>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>>
+      </div>
+
+      <div class="quixnav">
+        <div class="quixnav-scroll">
+          <ul class="metismenu" id="menu">
+            <li class="nav-label first"></li>
+
+            <li>
+              <a href="dasboard.html" aria-expanded="false">
+                <i class="icon icon-single-04"></i>
+                <span class="nav-text">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-label">INTELIGENCIA ARTIFICIAL</li>
+            <li>
+              <a href="inteligencia.html" aria-expanded="false">
+                <i class="icon icon-world-2"></i>
+                <span class="nav-text">Informes con IA</span>
+              </a>
+            </li>
+            <li class="nav-label">ANALTICS</li>
+            <li>
+              <a href="kpis.html" aria-expanded="false">
+                <i class="icon icon-world-2"></i>
+                <span class="nav-text">KPIs interactivos</span>
+              </a>
+            </li>
+            <li class="nav-label">CENTRO DE ALERTAS</li>
+            <li>
+              <a href="alertas.html" aria-expanded="false">
+                <i class="icon icon-world-2"></i>
+                <span class="nav-text">Alertas</span>
+              </a>
+            </li>
+
+            <li class="nav-label">Gestión de Personal</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-app-store"></i>
+                <span class="nav-text">Empleados</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Lista de Empleados</a></li>
+                <li><a href="#">Fichas Personales</a></li>
+                <li>
+                  <a
+                    class="has-arrow"
+                    href="javascript:void()"
+                    aria-expanded="false"
+                    >Contratos</a
+                  >
+                  <ul aria-expanded="false">
+                    <li><a href="#">Nuevo Contrato</a></li>
+                    <li><a href="#">Contratos Activos</a></li>
+                    <li><a href="#">Renovaciones</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Bajas y Altas</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-calendar-60"></i>
+                <span class="nav-text">Ausencias</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Vacaciones</a></li>
+                <li><a href="#">Bajas Médicas</a></li>
+                <li><a href="#">Permisos</a></li>
+                <li><a href="#">Calendario</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Nóminas y Retribución</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-chart-bar-33"></i>
+                <span class="nav-text">Nóminas</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Generar Nóminas</a></li>
+                <li><a href="#">Histórico</a></li>
+                <li><a href="#">Incentivos</a></li>
+                <li><a href="#">Retribución Flexible</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-money-coins"></i>
+                <span class="nav-text">Compensación</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Estructura Salarial</a></li>
+                <li><a href="#">Beneficios</a></li>
+                <li><a href="#">Bonos</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Desarrollo y Formación</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-world-2"></i>
+                <span class="nav-text">Formación</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Plan de Formación</a></li>
+                <li><a href="#">Cursos Disponibles</a></li>
+                <li><a href="#">Seguimiento</a></li>
+                <li><a href="#">Certificaciones</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-single-copy-06"></i>
+                <span class="nav-text">Evaluación</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Desempeño</a></li>
+                <li><a href="#">Objetivos</a></li>
+                <li><a href="#">Competencias</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Procesos RRHH</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-plug"></i>
+                <span class="nav-text">Reclutamiento</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Ofertas de Empleo</a></li>
+                <li><a href="#">Candidatos</a></li>
+                <li><a href="#">Entrevistas</a></li>
+                <li><a href="#">Onboarding</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-form"></i>
+                <span class="nav-text">Documentación</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Contratos</a></li>
+                <li><a href="#">Certificados</a></li>
+                <li><a href="#">Informes</a></li>
+                <li><a href="#">Plantillas</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Configuración</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-layout-25"></i>
+                <span class="nav-text">Configuración</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Departamentos</a></li>
+                <li><a href="#">Puestos de Trabajo</a></li>
+                <li><a href="#">Usuarios</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Sistema</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-single-copy-06"></i>
+                <span class="nav-text">Sistema</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Mi Perfil</a></li>
+                <li><a href="#">Configuración</a></li>
+                <li><a href="#">Cerrar Sesión</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0 align-items-center" style="background: linear-gradient(135deg, #BFCD31 0%, #248a0d 100%); border-radius: 20px; padding: 25px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(15,92,0,0.15);">
+            <div class="col-md-8">
+                <h2 class="text-white font-w700 mb-1">Centro de Control de Alertas Proactivas</h2>
+                <p class="text-white mb-0" style="opacity: 0.8;">Análisis de desviaciones Nivel 1 vs Presupuesto Mensual</p>
+            </div>
+
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card" style="border-radius: 15px; border: none; background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <div class="card-body p-3">
+                        <div class="row align-items-center">
+                            <div class="col-xl-8">
+                                <div class="filter-group d-flex align-items-center flex-wrap">
+                                    <span class="mr-3 font-w600 text-dark">Filtrar por Severidad:</span>
+                                    <button onclick="filterType('all')" class="btn btn-outline-dark btn-xs mr-2 px-3">Todas</button>
+                                    <button onclick="filterType('critica')" class="btn btn-danger btn-xs mr-2 px-3">Críticas (>10%)</button>
+                                    <button onclick="filterType('advertencia')" class="btn btn-warning text-white btn-xs mr-2 px-3">Aviso (5-10%)</button>
+                                    <div class="divider ml-2 mr-4" style="width: 1px; height: 20px; background: #ddd;"></div>
+                                    <span class="mr-3 font-w600 text-dark">Negocio:</span>
+                                    <button onclick="filterCat('rrhh')" class="btn btn-outline-secondary btn-xs mr-1">RRHH</button>
+                                    <button onclick="filterCat('ops')" class="btn btn-outline-secondary btn-xs mr-1">Operaciones</button>
+                                    <button onclick="filterCat('fin')" class="btn btn-outline-secondary btn-xs mr-1">Finanzas</button>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 text-right">
+                                <input type="text" class="form-control form-control-sm d-inline-block w-75" placeholder="Buscar alerta específica..." style="border-radius: 10px; background: #f1f1f1; border: none;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="alertsGrid">
+            
+            <div class="col-xl-6 col-lg-12 alert-item critica rrhh">
+                <div class="card shadow-sm border-0 mb-4" style="border-radius: 15px; border-left: 6px solid #f35757 !important;">
+                    <div class="card-body p-3">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="d-flex">
+                                <div class="icon-box mr-3" style="background: #fff0f0; padding: 10px; border-radius: 12px;"><i class="ti-user text-danger"></i></div>
+                                <div>
+                                    <h5 class="mb-0 font-w600">Absentismo Planta Alcolea</h5>
+                                    <small class="text-muted">ID: #HR-9921 • Resp: M. García</small>
+                                </div>
+                            </div>
+                            <span class="badge badge-danger">+12.4% Desviación</span>
+                        </div>
+                        <div class="row mt-3 bg-light mx-0 p-2 rounded">
+                            <div class="col-4 border-right"><h6 class="mb-0 font-w700">8.2%</h6><small>Tasa Actual</small></div>
+                            <div class="col-4 border-right"><h6 class="mb-0 font-w700">4.0%</h6><small>Objetivo</small></div>
+                            <div class="col-4 text-danger"><h6 class="mb-0 font-w700">€8.4k</h6><small>Coste Est.</small></div>
+                        </div>
+                        <div class="mt-3 d-flex justify-content-between">
+                            <button class="btn btn-xs btn-danger">Activar Plan Retención</button>
+                            <button class="btn btn-xs btn-outline-light text-dark">Detalle</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-12 alert-item advertencia ops">
+                <div class="card shadow-sm border-0 mb-4" style="border-radius: 15px; border-left: 6px solid #f3bb57 !important;">
+                    <div class="card-body p-3">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="d-flex">
+                                <div class="icon-box mr-3" style="background: #fff8eb; padding: 10px; border-radius: 12px;"><i class="ti-package text-warning"></i></div>
+                                <div>
+                                    <h5 class="mb-0 font-w600">Mermas en Línea Envasado 4</h5>
+                                    <small class="text-muted">ID: #OPS-441 • Resp: Ing. L. Soto</small>
+                                </div>
+                            </div>
+                            <span class="badge badge-warning text-white">6.8% Desviación</span>
+                        </div>
+                        <div class="row mt-3 bg-light mx-0 p-2 rounded">
+                            <div class="col-4 border-right"><h6 class="mb-0 font-w700">1.2%</h6><small>Mermas Hoy</small></div>
+                            <div class="col-4 border-right"><h6 class="mb-0 font-w700">0.5%</h6><small>Límite</small></div>
+                            <div class="col-4 text-warning"><h6 class="mb-0 font-w700">2.1t</h6><small>Pérdida</small></div>
+                        </div>
+                        <div class="mt-3 d-flex justify-content-between">
+                            <button class="btn btn-xs btn-warning text-white">Revisar Calibración</button>
+                            <button class="btn btn-xs btn-outline-light text-dark">Detalle</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-12 alert-item critica fin">
+                <div class="card shadow-sm border-0 mb-4" style="border-radius: 15px; border-left: 6px solid #f35757 !important;">
+                    <div class="card-body p-3">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="d-flex">
+                                <div class="icon-box mr-3" style="background: #fff0f0; padding: 10px; border-radius: 12px;"><i class="ti-money text-danger"></i></div>
+                                <div>
+                                    <h5 class="mb-0 font-w600">Gasto Energético (Gas)</h5>
+                                    <small class="text-muted">ID: #FIN-102 • Global Plantas</small>
+                                </div>
+                            </div>
+                            <span class="badge badge-danger">+18.5% Presup.</span>
+                        </div>
+                        <p class="small text-muted mb-0 mt-2">El incremento del precio Spot ha superado la cobertura contratada para Q1.</p>
+                        <div class="row mt-2 bg-light mx-0 p-2 rounded">
+                            <div class="col-6 border-right text-center"><h6 class="mb-0 font-w700">€142,000</h6><small>Gasto Real</small></div>
+                            <div class="col-6 text-center text-danger"><h6 class="mb-0 font-w700">€22,100</h6><small>Desviación</small></div>
+                        </div>
+                        <div class="mt-3">
+                            <button class="btn btn-xs btn-danger btn-block shadow-sm">Simular Escenarios de Cobertura</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-12 alert-item advertencia rrhh">
+                <div class="card shadow-sm border-0 mb-4" style="border-radius: 15px; border-left: 6px solid #f3bb57 !important;">
+                    <div class="card-body p-3">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="d-flex">
+                                <div class="icon-box mr-3" style="background: #fff8eb; padding: 10px; border-radius: 12px;"><i class="ti-timer text-warning"></i></div>
+                                <div>
+                                    <h5 class="mb-0 font-w600">Horas Extra Acumuladas</h5>
+                                    <small class="text-muted">ID: #HR-112 • Depto. Logística</small>
+                                </div>
+                            </div>
+                            <span class="badge badge-warning text-white">9.1% Riesgo</span>
+                        </div>
+                        <div class="mt-3">
+                            <div class="progress mb-2" style="height: 6px; border-radius: 10px;">
+                                <div class="progress-bar bg-warning" style="width: 78%;"></div>
+                            </div>
+                            <small>Consumo de bolsa de horas anual al 78% (Debería estar al 60%)</small>
+                        </div>
+                        <div class="mt-3 d-flex justify-content-end">
+                            <button class="btn btn-xs btn-outline-warning">Ajustar Cuadrantes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-12 alert-item critica fin">
+                <div class="card shadow-sm border-0 mb-4" style="border-radius: 15px; border-left: 6px solid #f35757 !important;">
+                    <div class="card-body p-3">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="d-flex">
+                                <div class="icon-box mr-3" style="background: #fff0f0; padding: 10px; border-radius: 12px;"><i class="ti-alert text-danger"></i></div>
+                                <div>
+                                    <h5 class="mb-0 font-w600">EBITDA Semanal - Italia</h5>
+                                    <small class="text-muted">ID: #FIN-005 • Mercados Internacionales</small>
+                                </div>
+                            </div>
+                            <span class="badge badge-danger">-11.2% Objetivo</span>
+                        </div>
+                        <div class="row mt-3 text-center">
+                            <div class="col-4"><h5 class="mb-0 font-w700">€2.1M</h5><small>Actual</small></div>
+                            <div class="col-4 border-left border-right"><h5 class="mb-0 font-w700 text-danger">-€265K</h5><small>GAP</small></div>
+                            <div class="col-4"><h5 class="mb-0 font-w700">2.8%</h5><small>Margen</small></div>
+                        </div>
+                        <div class="mt-3">
+                            <button class="btn btn-xs btn-dark btn-block">Abrir Bridge de Análisis</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-12 alert-item critica ops">
+                <div class="card shadow-sm border-0 mb-4" style="border-radius: 15px; border-left: 6px solid #f35757 !important;">
+                    <div class="card-body p-3">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div class="d-flex">
+                                <div class="icon-box mr-3" style="background: #fff0f0; padding: 10px; border-radius: 12px;"><i class="ti-settings text-danger"></i></div>
+                                <div>
+                                    <h5 class="mb-0 font-w600">Disponibilidad de Activos (OEE)</h5>
+                                    <small class="text-muted">ID: #OPS-99 • Planta Tavarnelle</small>
+                                </div>
+                            </div>
+                            <span class="badge badge-danger">-14.0%</span>
+                        </div>
+                        <p class="small text-muted mt-2">Parada no programada en prensa principal por avería en rodamiento.</p>
+                        <div class="d-flex align-items-center mt-2">
+                            <div class="mr-3 text-danger font-w700 h4 mb-0">62%</div>
+                            <div class="w-100">
+                                <div class="progress" style="height: 12px; border-radius: 20px;">
+                                    <div class="progress-bar bg-danger" style="width: 62%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 d-flex justify-content-between align-items-center">
+                            <small class="text-danger font-w600"><i class="ti-alert"></i> Crítico: MTTR > 4h</small>
+                            <button class="btn btn-xs btn-danger">Escalar a Mantenimiento</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function filterType(type) {
+        const items = document.querySelectorAll('.alert-item');
+        items.forEach(item => {
+            if(type === 'all' || item.classList.contains(type)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    function filterCat(cat) {
+        const items = document.querySelectorAll('.alert-item');
+        items.forEach(item => {
+            if(item.classList.contains(cat)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+<style>
+    .icon-box i { font-size: 20px; }
+    .badge-danger { background-color: #f35757; }
+    .badge-warning { background-color: #f3bb57; }
+    .btn-xs { padding: 5px 10px; font-size: 0.75rem; border-radius: 8px; }
+    .card { transition: all 0.2s; cursor: default; }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important; }
+    .font-w600 { font-weight: 600; }
+    .font-w700 { font-weight: 700; }
+</style>
+
+      <div class="footer">
+        <div class="copyright text-center">
+          <p>© 2026 Deoleo S.A. - Sistema de Alertas Críticas</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="./vendor/global/global.min.js"></script>
+    <script src="./js/quixnav-init.js"></script>
+    <script src="./js/custom.min.js"></script>
+  </body>
+</html>

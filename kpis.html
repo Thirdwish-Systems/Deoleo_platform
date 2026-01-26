@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Deoleo - Cuadro de Mando Estratégico</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/favicon.png"
+    />
+    <link href="./css/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      :root {
+        --deoleo-green: #0f5c00;
+        --deoleo-lime: #bfcd31;
+        --deoleo-gray: #52525c;
+      }
+      .filter-section {
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 25px;
+        border: 1px solid #e2e2e2;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      .filter-label {
+        font-weight: bold;
+        font-size: 0.75rem;
+        color: var(--deoleo-gray);
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        display: block;
+      }
+      .kpi-card {
+        border-left: 5px solid var(--deoleo-green) !important;
+        transition: transform 0.2s;
+      }
+      .kpi-card:hover {
+        transform: translateY(-3px);
+      }
+      .kpi-card h3 {
+        color: var(--deoleo-green);
+        font-weight: 700;
+      }
+      .chart-container {
+        position: relative;
+        height: 300px;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="preloader">
+      <div class="sk-three-bounce">
+        <div class="sk-child sk-bounce1"></div>
+        <div class="sk-child sk-bounce2"></div>
+        <div class="sk-child sk-bounce3"></div>
+      </div>
+    </div>
+
+    <div id="main-wrapper">
+      <div
+        class="nav-header"
+        style="
+          background: #52525c;
+          padding: 15px 20px;
+          border-bottom: 2px solid #fdfdfd;
+        "
+      >
+        <a href="dasboard.html" class="brand-logo">
+          <img
+            src="./images/logogris.webp"
+            alt="Deoleo"
+            style="width: 160px; filter: brightness(3.5)"
+          />
+        </a>
+      </div>
+
+      <div class="header">
+        <div class="header-content">
+          <nav class="navbar navbar-expand">
+            <div class="collapse navbar-collapse justify-content-between">
+              <div class="header-left">
+                <div class="search_bar dropdown">
+                  <span
+                    class="search_icon p-3 c-pointer"
+                    data-toggle="dropdown"
+                  >
+                    <i class="mdi mdi-magnify"></i>
+                  </span>
+                  <div class="dropdown-menu p-0 m-0">
+                    <form>
+                      <input
+                        class="form-control"
+                        type="search"
+                        placeholder="Buscar empleado..."
+                        aria-label="Search"
+                      />
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <ul class="navbar-nav header-right">
+                <li class="nav-item dropdown notification_dropdown">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    role="button"
+                    data-toggle="dropdown"
+                  >
+                    <i class="mdi mdi-bell"></i>
+                    <div class="pulse-css"></div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <ul class="list-unstyled">
+                      <li class="media dropdown-item">
+                        <span class="success"><i class="ti-user"></i></span>
+                        <div class="media-body">
+                          <a href="#">
+                            <p>
+                              <strong>Nuevo contrato</strong> para Carlos Ruiz
+                              en IT
+                            </p>
+                          </a>
+                        </div>
+                        <span class="notify-time">10:30 am</span>
+                      </li>
+                      <li class="media dropdown-item">
+                        <span class="primary"><i class="ti-calendar"></i></span>
+                        <div class="media-body">
+                          <a href="#">
+                            <p>
+                              <strong>Solicitud de vacaciones</strong> de Laura
+                              Méndez
+                            </p>
+                          </a>
+                        </div>
+                        <span class="notify-time">09:15 am</span>
+                      </li>
+                      <li class="media dropdown-item">
+                        <span class="danger"><i class="ti-alert"></i></span>
+                        <div class="media-body">
+                          <a href="#">
+                            <p>
+                              <strong>Incidencia reportada</strong> baja médica
+                            </p>
+                          </a>
+                        </div>
+                        <span class="notify-time">08:45 am</span>
+                      </li>
+                    </ul>
+                    <a class="all-notification" href="#"
+                      >Ver todas las notificaciones
+                      <i class="ti-arrow-right"></i
+                    ></a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown header-profile">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    role="button"
+                    data-toggle="dropdown"
+                  >
+                    <i class="mdi mdi-account"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a href="#" class="dropdown-item">
+                      <i class="icon-user"></i>
+                      <span class="ml-2">Mi Perfil</span>
+                    </a>
+                    <a href="index.html" class="dropdown-item">
+                      <i class="icon-key"></i>
+                      <span class="ml-2">Cerrar Sesión</span>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="quixnav">
+        <div class="quixnav-scroll">
+          <ul class="metismenu" id="menu">
+            <li class="nav-label first"></li>
+
+            <li>
+              <a href="dasboard.html" aria-expanded="false">
+                <i class="icon icon-single-04"></i>
+                <span class="nav-text">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-label">INTELIGENCIA ARTIFICIAL</li>
+            <li>
+              <a href="inteligencia.html" aria-expanded="false">
+                <i class="icon icon-world-2"></i>
+                <span class="nav-text">Informes con IA</span>
+              </a>
+            </li>
+            <li class="nav-label">ANALTICS</li>
+            <li>
+              <a href="kpis.html" aria-expanded="false">
+                <i class="icon icon-world-2"></i>
+                <span class="nav-text">KPIs interactivos</span>
+              </a>
+            </li>
+            <li class="nav-label">CENTRO DE ALERTAS</li>
+            <li>
+              <a href="alertas.html" aria-expanded="false">
+                <i class="icon icon-world-2"></i>
+                <span class="nav-text">Alertas</span>
+              </a>
+            </li>
+
+            <li class="nav-label">Gestión de Personal</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-app-store"></i>
+                <span class="nav-text">Empleados</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Lista de Empleados</a></li>
+                <li><a href="#">Fichas Personales</a></li>
+                <li>
+                  <a
+                    class="has-arrow"
+                    href="javascript:void()"
+                    aria-expanded="false"
+                    >Contratos</a
+                  >
+                  <ul aria-expanded="false">
+                    <li><a href="#">Nuevo Contrato</a></li>
+                    <li><a href="#">Contratos Activos</a></li>
+                    <li><a href="#">Renovaciones</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Bajas y Altas</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-calendar-60"></i>
+                <span class="nav-text">Ausencias</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Vacaciones</a></li>
+                <li><a href="#">Bajas Médicas</a></li>
+                <li><a href="#">Permisos</a></li>
+                <li><a href="#">Calendario</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Nóminas y Retribución</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-chart-bar-33"></i>
+                <span class="nav-text">Nóminas</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Generar Nóminas</a></li>
+                <li><a href="#">Histórico</a></li>
+                <li><a href="#">Incentivos</a></li>
+                <li><a href="#">Retribución Flexible</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-money-coins"></i>
+                <span class="nav-text">Compensación</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Estructura Salarial</a></li>
+                <li><a href="#">Beneficios</a></li>
+                <li><a href="#">Bonos</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Desarrollo y Formación</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-world-2"></i>
+                <span class="nav-text">Formación</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Plan de Formación</a></li>
+                <li><a href="#">Cursos Disponibles</a></li>
+                <li><a href="#">Seguimiento</a></li>
+                <li><a href="#">Certificaciones</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-single-copy-06"></i>
+                <span class="nav-text">Evaluación</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Desempeño</a></li>
+                <li><a href="#">Objetivos</a></li>
+                <li><a href="#">Competencias</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Procesos RRHH</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-plug"></i>
+                <span class="nav-text">Reclutamiento</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Ofertas de Empleo</a></li>
+                <li><a href="#">Candidatos</a></li>
+                <li><a href="#">Entrevistas</a></li>
+                <li><a href="#">Onboarding</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-form"></i>
+                <span class="nav-text">Documentación</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Contratos</a></li>
+                <li><a href="#">Certificados</a></li>
+                <li><a href="#">Informes</a></li>
+                <li><a href="#">Plantillas</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Configuración</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-layout-25"></i>
+                <span class="nav-text">Configuración</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Departamentos</a></li>
+                <li><a href="#">Puestos de Trabajo</a></li>
+                <li><a href="#">Usuarios</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Sistema</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-single-copy-06"></i>
+                <span class="nav-text">Sistema</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="#">Mi Perfil</a></li>
+                <li><a href="#">Configuración</a></li>
+                <li><a href="#">Cerrar Sesión</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="content-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="filter-section">
+                <div class="row">
+                  <div class="col-md-2">
+                    <label class="filter-label">Business Unit</label>
+                    <select class="form-control select-filter" id="fBU">
+                      <option value="all">Todas las BUs</option>
+                      <option value="latam">LATAM</option>
+                      <option value="emea">EMEA</option>
+                      <option value="na">North America</option>
+                      <option value="asia">Asia-Pacific</option>
+                    </select>
+                  </div>
+                  <div class="col-md-2">
+                    <label class="filter-label">País</label>
+                    <select class="form-control select-filter" id="fCountry">
+                      <option value="all">Todos los Países</option>
+                      <option value="es">España</option>
+                      <option value="it">Italia</option>
+                      <option value="us">USA</option>
+                      <option value="mx">México</option>
+                    </select>
+                  </div>
+                  <div class="col-md-2">
+                    <label class="filter-label">Departamento</label>
+                    <select class="form-control select-filter" id="fDept">
+                      <option value="all">Todos los Dept.</option>
+                      <option value="it">IT</option>
+                      <option value="mkt">Marketing</option>
+                      <option value="prod">Producción</option>
+                      <option value="ventas">Ventas</option>
+                      <option value="rrhh">RRHH</option>
+                    </select>
+                  </div>
+                  <div class="col-md-2">
+                    <label class="filter-label">Nivel Profesional</label>
+                    <select class="form-control select-filter" id="fLevel">
+                      <option value="all">Todos los Niveles</option>
+                      <option value="dir">Directivo / CEO</option>
+                      <option value="man">Manager / Jefe</option>
+                      <option value="staff">Staff / Técnico</option>
+                      <option value="op">Operario</option>
+                    </select>
+                  </div>
+                  <div class="col-md-2">
+                    <label class="filter-label">Contrato</label>
+                    <select class="form-control select-filter" id="fContract">
+                      <option value="all">Todos los tipos</option>
+                      <option value="ind">Indefinido</option>
+                      <option value="temp">Temporal</option>
+                      <option value="prac">Prácticas</option>
+                    </select>
+                  </div>
+                  <div class="col-md-2">
+                    <label class="filter-label">Género</label>
+                    <select class="form-control select-filter" id="fGender">
+                      <option value="all">Ambos</option>
+                      <option value="h">Hombre</option>
+                      <option value="m">Mujer</option>
+                      <option value="nb">No binario</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="card kpi-card shadow-sm">
+                <div class="card-body">
+                  <h6>Coste Total</h6>
+                  <h3 id="valCost">€4.2M</h3>
+                  <small class="text-success">↑ 2% vs prev</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card kpi-card shadow-sm">
+                <div class="card-body">
+                  <h6>% Rotación</h6>
+                  <h3 id="valRot">4.2%</h3>
+                  <small class="text-danger">↑ 0.5% vs prev</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card kpi-card shadow-sm">
+                <div class="card-body">
+                  <h6>Headcount</h6>
+                  <h3 id="valHC">247</h3>
+                  <small class="text-muted">Activos</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card kpi-card shadow-sm">
+                <div class="card-body">
+                  <h6>Diversidad</h6>
+                  <h3 id="valDiv">48% M</h3>
+                  <small class="text-success">Objetivo: 50%</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="card">
+                <div class="card-header border-0">
+                  <h4 class="card-title">Evolución de Costes (€)</h4>
+                </div>
+                <div class="card-body">
+                  <canvas id="chartCostes" height="300"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-header border-0">
+                  <h4 class="card-title">Género</h4>
+                </div>
+                <div class="card-body">
+                  <canvas id="chartGenero" height="300"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-header border-0">
+                  <h4 class="card-title">Distribución por Nivel</h4>
+                </div>
+                <div class="card-body">
+                  <canvas id="chartNivel" height="250"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-header border-0">
+                  <h4 class="card-title">Ausentismo por Dept.</h4>
+                </div>
+                <div class="card-body">
+                  <canvas id="chartAusencia" height="250"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-header border-0">
+                  <h4 class="card-title">Antigüedad Media</h4>
+                </div>
+                <div class="card-body">
+                  <canvas id="chartAntiguedad" height="250"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header border-0">
+                  <h4 class="card-title">Tendencia de Rotación Mensual (%)</h4>
+                </div>
+                <div class="card-body">
+                  <canvas id="chartRotacion" height="200"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="copyright">
+          <p>© 2026 Deoleo S.A. - Cuadro de Mando Inteligente</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="./vendor/global/global.min.js"></script>
+    <script src="./js/quixnav-init.js"></script>
+    <script src="./js/custom.min.js"></script>
+
+    <script>
+      const colors = {
+        primary: "#0f5c00",
+        lime: "#bfcd31",
+        gray: "#52525c",
+        light: "#f4faf2",
+      };
+
+      const commonOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { position: "bottom" } },
+      };
+
+      const cCostes = new Chart(document.getElementById("chartCostes"), {
+        type: "bar",
+        data: {
+          labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun"],
+          datasets: [{ label: "Coste Real", data: [420, 450, 430, 480, 470, 490], backgroundColor: colors.primary }],
+        },
+        options: commonOptions,
+      });
+
+      const cGen = new Chart(document.getElementById("chartGenero"), {
+        type: "doughnut",
+        data: { labels: ["Hombres", "Mujeres"], datasets: [{ data: [120, 127], backgroundColor: [colors.gray, colors.lime] }] },
+        options: { ...commonOptions, cutout: "70%" },
+      });
+
+      const cNivel = new Chart(document.getElementById("chartNivel"), {
+        type: "pie",
+        data: { labels: ["Dir", "Man", "Staff"], datasets: [{ data: [15, 45, 187], backgroundColor: [colors.primary, colors.lime, colors.gray] }] },
+        options: commonOptions,
+      });
+
+      const cAus = new Chart(document.getElementById("chartAusencia"), {
+        type: "radar",
+        data: { labels: ["IT", "Ventas", "Prod", "RRHH", "Fin"], datasets: [{ label: "Índice Bajas", data: [2, 5, 8, 1, 3], borderColor: colors.primary, backgroundColor: "rgba(15, 92, 0, 0.2)" }] },
+        options: commonOptions,
+      });
+
+      const cAnt = new Chart(document.getElementById("chartAntiguedad"), {
+        type: "bar",
+        data: { labels: ["<1y", "1-3y", "3-5y", ">5y"], datasets: [{ label: "Empleados", data: [40, 90, 60, 57], backgroundColor: colors.lime, indexAxis: "y" }] },
+        options: commonOptions,
+      });
+
+      const cRot = new Chart(document.getElementById("chartRotacion"), {
+        type: "line",
+        data: { labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun"], datasets: [{ label: "% Rotación", data: [1.2, 1.1, 1.5, 2.0, 1.8, 1.4], borderColor: colors.lime, fill: true, backgroundColor: "rgba(191, 205, 49, 0.1)", tension: 0.4 }] },
+        options: commonOptions,
+      });
+
+      document.querySelectorAll(".select-filter").forEach((select) => {
+        select.addEventListener("change", () => {
+          document.getElementById("preloader").style.display = "block";
+          setTimeout(() => {
+            cCostes.data.datasets[0].data = cCostes.data.datasets[0].data.map(v => v * (0.9 + Math.random() * 0.2));
+            cCostes.update();
+            document.getElementById("preloader").style.display = "none";
+          }, 600);
+        });
+      });
+    </script>
+  </body>
+</html>
