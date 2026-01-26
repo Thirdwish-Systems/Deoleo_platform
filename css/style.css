@@ -19415,3 +19415,14 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
       color: #fff; }
 
 /*# sourceMappingURL=style.css.map */
+
+.deoleo-logo {
+    opacity: 0;
+    transform: translateY(50px); /* Empieza 50px más abajo */
+    transition: all 1s ease-out; /* Duración de 1 segundo */
+  }
+
+  .deoleo-logo.visible {
+    opacity: 1;
+    transform: translateY(0); /* Vuelve a su sitio */
+  }

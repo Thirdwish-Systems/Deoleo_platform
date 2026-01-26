@@ -108,5 +108,16 @@
     <script src="./vendor/global/global.min.js"></script>
     <script src="./js/quixnav-init.js"></script>
     <script src="./js/custom.min.js"></script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const logo = document.querySelector('.deoleo-logo');
+    
+    // Un pequeño delay para que el usuario note el movimiento
+    setTimeout(() => {
+      logo.classList.add('visible');
+    }, 200); 
+  });
+</script>
+    
   </body>
 </html>
