@@ -1,71 +1,36 @@
 <!doctype html>
-
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Deoleo. Líder Mundial del Aceite de Oliva</title>
-    <!-- Favicon icon -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="./images/favicon.png"
-    />
-    <link
-      href="./vendor/pg-calendar/css/pignose.calendar.min.css"
-      rel="stylesheet"
-    />
-    <link href="./vendor/chartist/css/chartist.min.css" rel="stylesheet" />
+    <title>Deoleo - Gestión de Usuarios del Sistema</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png" />
+    
+    <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet" />
+    
+    <style>
+        .table thead th { color: #0f5c00 !important; font-weight: 700; text-transform: uppercase; font-size: 11px; border-bottom: 2px solid #bfcd31 !important; }
+        .dataTables_filter input { border: 1px solid #ddd; border-radius: 20px; padding: 5px 15px; margin-left: 10px; outline: none; }
+        .page-item.active .page-link { background-color: #0f5c00; border-color: #0f5c00; }
+        .user-avatar { width: 30px; height: 30px; border-radius: 50%; background: #eee; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; font-weight: bold; color: #666; font-size: 10px; }
+        .badge-admin { background-color: #0f5c00; color: white; }
+        .badge-editor { background-color: #bfcd31; color: #0f5c00; }
+        .badge-viewer { background-color: #e9ecef; color: #495057; }
+    </style>
   </head>
 
   <body>
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
-      <div class="sk-three-bounce">
-        <div class="sk-child sk-bounce1"></div>
-        <div class="sk-child sk-bounce2"></div>
-        <div class="sk-child sk-bounce3"></div>
-      </div>
-    </div>
-    <!--*******************
-        Preloader end
-    ********************-->
+    <div id="preloader"><div class="sk-three-bounce"><div class="sk-child sk-bounce1"></div><div class="sk-child sk-bounce2"></div><div class="sk-child sk-bounce3"></div></div></div>
 
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
     <div id="main-wrapper">
-      <!--**********************************
-            Nav header start
-        ***********************************-->
-      <div
-        class="nav-header"
-        style="
-          background: #52525c;
-          padding: 15px 20px;
-          border-bottom: 2px solid #fdfdfd;
-        "
-      >
+      <div class="nav-header" style="background: #52525c; padding: 15px 20px; border-bottom: 2px solid #fdfdfd;">
         <a href="dasboard.html" class="brand-logo">
-          <img
-            src="./images/logogris.webp"
-            alt="Deoleo"
-            style="width: 160px; filter: brightness(3.5) contrast(0.8)"
-          />
+          <img src="./images/logogris.webp" alt="Deoleo" style="width: 160px; filter: brightness(3.5) contrast(0.8)" />
         </a>
       </div>
-      <!--**********************************
-            Nav header end
-        ***********************************-->
 
-      <!--**********************************
-            Header start
-        ***********************************-->
       <div class="header">
         <div class="header-content">
           <nav class="navbar navbar-expand">
@@ -203,13 +168,7 @@
           </nav>
         </div>
       </div>
-      <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
 
-      <!--**********************************
-            Sidebar start
-        ***********************************-->
       <div class="quixnav">
         <div class="quixnav-scroll">
           <ul class="metismenu" id="menu">
@@ -243,7 +202,7 @@
               </a>
             </li>
 
-            <li class="nav-label">Configuración</li>
+             <li class="nav-label">Configuración</li>
             <li>
               <a
                 class="has-arrow"
@@ -256,6 +215,7 @@
               <ul aria-expanded="false">
                 <li><a href="gestion-departamentos.html">Departamentos</a></li>
                 <li><a href="gestion-usuarios.html">Gestión de Usuarios</a></li>
+                
               </ul>
             </li>
 
@@ -271,13 +231,11 @@
               </a>
               <ul aria-expanded="false">
                 <li><a href="trazabilidad.html">Trazabilidad y Logs</a></li>
-                <li>
-                  <a href="fuentes-origen.html">Fuentes de Origen (API)</a>
-                </li>
+                <li><a href="fuentes-origen.html">Fuentes de Origen (API)</a></li>
               </ul>
             </li>
 
-            <!--             <li class="nav-label">Gestión de Personal</li>
+<!--             <li class="nav-label">Gestión de Personal</li>
             <li>
               <a
                 class="has-arrow"
@@ -426,281 +384,80 @@
                 <li><a href="#">Plantillas</a></li>
               </ul>
             </li> -->
+
+
+
+
           </ul>
         </div>
       </div>
-      <!--**********************************
-            Sidebar end
-        ***********************************-->
 
-      <!--**********************************
-            Content body start
-        ***********************************-->
       <div class="content-body">
         <div class="container-fluid">
           <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
               <div class="welcome-text">
-                <h4 style="color: #0f5c00">
-                  ¡Hola, bienvenido Juan Moleres Vidalo
-                </h4>
-                <p class="mb-0">Panel de Control de Recursos Humanos</p>
+                <h4 style="color: #0f5c00">Gestión de Accesos</h4>
+                <p class="mb-0">Control de permisos y usuarios del portal de Gobierno</p>
               </div>
             </div>
-            <div
-              class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex"
-            >
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item active">
-                  <a href="javascript:void(0)">Dashboard RRHH</a>
-                </li>
-                <li class="breadcrumb-item">
-                  <a href="javascript:void(0)">RRHH</a>
-                </li>
-              </ol>
+            <div class="col-sm-6 p-md-0 text-right">
+                <button class="btn btn-primary" style="background: #0f5c00; border: none; border-radius: 20px;">
+                    <i class="ti-user mr-2"></i>Nuevo Usuario
+                </button>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-lg-3 col-sm-6">
-              <div class="card">
-                <div class="stat-widget-one card-body">
-                  <div class="stat-icon d-inline-block">
-                    <i class="ti-user text-success border-success"></i>
-                  </div>
-                  <div class="stat-content d-inline-block">
-                    <div class="stat-text">Total Empleados</div>
-                    <div class="stat-digit">247</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="card">
-                <div class="stat-widget-one card-body">
-                  <div class="stat-icon d-inline-block">
-                    <i class="ti-plus text-primary border-primary"></i>
-                  </div>
-                  <div class="stat-content d-inline-block">
-                    <div class="stat-text">Nuevos Contratos</div>
-                    <div class="stat-digit">12</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="card">
-                <div class="stat-widget-one card-body">
-                  <div class="stat-icon d-inline-block">
-                    <i class="ti-calendar text-pink border-pink"></i>
-                  </div>
-                  <div class="stat-content d-inline-block">
-                    <div class="stat-text">Vacaciones Activas</div>
-                    <div class="stat-digit">34</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="card">
-                <div class="stat-widget-one card-body">
-                  <div class="stat-icon d-inline-block">
-                    <i class="ti-alert text-danger border-danger"></i>
-                  </div>
-                  <div class="stat-content d-inline-block">
-                    <div class="stat-text">Incidencias</div>
-                    <div class="stat-digit">8</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-8">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title">Nóminas y Gastos de Personal</h4>
-                </div>
-                <div class="card-body">
-                  <div class="ct-bar-chart mt-5"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Distribución por Departamentos</h4>
-                  <div class="ct-pie-chart"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-6 col-md-12">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title">Book Mensual RRHH</h4>
-                  <span class="badge badge-primary">Febrero 2026</span>
-                </div>
-                <div class="card-body">
-                  <div
-                    class="text-center p-4"
-                    style="
-                      border: 2px dashed #ddd;
-                      border-radius: 10px;
-                      background: #f9f9f9;
-                    "
-                  >
-                    <i
-                      class="ti-book"
-                      style="font-size: 50px; color: #0f5c00"
-                    ></i>
-                    <h5 class="mt-3">Resumen Ejecutivo de Gestión</h5>
-                    <p class="text-muted">
-                      Descarga el reporte completo de KPIs, evolución de
-                      plantilla y objetivos del mes.
-                    </p>
-                    <a
-                      href="docs/Book_Octubre_24.pdf"
-                      target="_blank"
-                      class="btn btn-primary mt-2"
-                      style="background-color: #bfcd31; border-color: #0f5c00"
-                    >
-                      <i class="ti-download mr-2"></i> Descargar PDF
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6 col-md-12">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title">
-                    AI Highlights
-                    <span class="badge badge-xs badge-info ml-2">Beta AI</span>
-                  </h4>
-                </div>
-                <div class="card-body">
-                  <div
-                    class="ai-insight-item mb-3 p-3"
-                    style="border-left: 4px solid #bfcd31; background: #fbfee7"
-                  >
-                    <h6 class="text-dark">
-                      <i class="ti-check-box mr-2"></i>Predicción de Rotación
-                    </h6>
-                    <p class="mb-0 mt-1 small">
-                      Se detecta un riesgo leve de rotación en el departamento
-                      de <strong>IT</strong> para el próximo trimestre. Se
-                      recomienda revisar planes de carrera.
-                    </p>
-                  </div>
-
-                  <div
-                    class="ai-insight-item mb-3 p-3"
-                    style="border-left: 4px solid #0f5c00; background: #f4faf2"
-                  >
-                    <h6 class="text-dark">
-                      <i class="ti-check-box mr-2"></i>Eficiencia en
-                      Contratación
-                    </h6>
-                    <p class="mb-0 mt-1 small">
-                      El tiempo de cobertura de vacantes ha disminuido un
-                      <strong>12%</strong> respecto al mes anterior gracias al
-                      nuevo portal.
-                    </p>
-                  </div>
-
-                  <div
-                    class="ai-insight-item p-3"
-                    style="border-left: 4px solid #52525c; background: #f6f6f7"
-                  >
-                    <h6 class="text-dark">
-                      <i class="ti-check-box mr-2"></i>Sugerencia de Formación
-                    </h6>
-                    <p class="mb-0 mt-1 small">
-                      El 80% del equipo de Ventas ha completado el módulo
-                      básico. Es buen momento para lanzar el nivel avanzado.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Calendario RRHH</h4>
-                  <div class="year-calendar"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-8">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title">Solicitudes Recientes</h4>
-                </div>
+            <div class="col-12">
+              <div class="card" style="border-top: 3px solid #bfcd31; box-shadow: 0px 4px 15px rgba(0,0,0,0.1);">
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table student-data-table m-t-20">
+                    <table id="usuariosTable" class="table table-striped table-bordered" style="width:100%">
                       <thead>
                         <tr>
-                          <th>Empleado</th>
-                          <th>Tipo</th>
-                          <th>Fecha</th>
-                          <th>Estado</th>
+                          <th>Nombre y Apellido</th>
+                          <th>Email Corporativo</th>
+                          <th>Rol</th>
                           <th>Departamento</th>
+                          <th>Último Acceso</th>
+                          <th>Estado</th>
+                          <th>Acción</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>Laura Méndez</td>
-                          <td>Vacaciones</td>
-                          <td>15/01/2024</td>
-                          <td>
-                            <span class="badge badge-success">Aprobado</span>
-                          </td>
-                          <td>Marketing</td>
-                        </tr>
-                        <tr>
-                          <td>Pedro Sánchez</td>
-                          <td>Formación</td>
-                          <td>14/01/2024</td>
-                          <td>
-                            <span class="badge badge-warning">Pendiente</span>
-                          </td>
-                          <td>IT</td>
-                        </tr>
-                        <tr>
-                          <td>Ana Torres</td>
-                          <td>Teletrabajo</td>
-                          <td>13/01/2024</td>
-                          <td>
-                            <span class="badge badge-success">Aprobado</span>
-                          </td>
-                          <td>Ventas</td>
-                        </tr>
-                        <tr>
-                          <td>Miguel Ángel</td>
-                          <td>Baja Médica</td>
-                          <td>12/01/2024</td>
-                          <td>
-                            <span class="badge badge-danger">En revisión</span>
-                          </td>
-                          <td>Producción</td>
-                        </tr>
-                        <tr>
-                          <td>Elena Castro</td>
-                          <td>Cambio Turno</td>
-                          <td>11/01/2024</td>
-                          <td>
-                            <span class="badge badge-success">Aprobado</span>
-                          </td>
-                          <td>Calidad</td>
-                        </tr>
+                        <tr><td><div class="user-avatar">AM</div> Alberto Martínez</td><td>a.martinez@deoleo.com</td><td><span class="badge badge-admin">Super Admin</span></td><td>IT Infrastructure</td><td>Hoy 08:30</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">LG</div> Lucía García</td><td>l.garcia@deoleo.com</td><td><span class="badge badge-editor">Gestor Datos</span></td><td>RRHH España</td><td>Ayer 17:45</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">CP</div> Carlos Pérez</td><td>c.perez@deoleo.com</td><td><span class="badge badge-viewer">Auditor</span></td><td>Compliance</td><td>24/01/2026</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">MR</div> Marta Rodríguez</td><td>m.rodriguez@deoleo.com</td><td><span class="badge badge-editor">Gestor Datos</span></td><td>Finanzas</td><td>Hoy 09:15</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">JS</div> John Smith</td><td>j.smith@deoleo.com</td><td><span class="badge badge-viewer">Auditor</span></td><td>Global HR</td><td>20/01/2026</td><td><span class="text-danger">Suspendido</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">ER</div> Elena Rivas</td><td>e.rivas@deoleo.com</td><td><span class="badge badge-editor">Gestor Datos</span></td><td>PRL</td><td>Ayer 10:00</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">DP</div> David Pons</td><td>d.pons@deoleo.com</td><td><span class="badge badge-admin">Admin</span></td><td>IT Seguridad</td><td>Hoy 08:00</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">SB</div> Sofía Blanco</td><td>s.blanco@deoleo.com</td><td><span class="badge badge-viewer">Auditor</span></td><td>Legal</td><td>15/01/2026</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">RG</div> Raúl Gómez</td><td>r.gomez@deoleo.com</td><td><span class="badge badge-editor">Gestor Datos</span></td><td>Operaciones</td><td>Hace 2h</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">NV</div> Nuria Vila</td><td>n.vila@deoleo.com</td><td><span class="badge badge-viewer">Auditor</span></td><td>Calidad</td><td>Hoy 07:30</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        
+                        <tr><td><div class="user-avatar">FR</div> Fabio Rossi</td><td>f.rossi@deoleo.com</td><td><span class="badge badge-editor">Gestor Datos</span></td><td>RRHH Italia</td><td>23/01/2026</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">MT</div> Mark Taylor</td><td>m.taylor@deoleo.com</td><td><span class="badge badge-viewer">Auditor</span></td><td>HR USA</td><td>Ayer</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">AC</div> Ana Costa</td><td>a.costa@deoleo.com</td><td><span class="badge badge-editor">Gestor Datos</span></td><td>Marketing</td><td>Hace 4d</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">JM</div> Javier Mora</td><td>j.mora@deoleo.com</td><td><span class="badge badge-admin">Admin</span></td><td>Sistemas</td><td>Hoy 09:00</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">BC</div> Beatriz Cano</td><td>b.cano@deoleo.com</td><td><span class="badge badge-viewer">Auditor</span></td><td>Contabilidad</td><td>22/01/2026</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">PL</div> Pedro León</td><td>p.leon@deoleo.com</td><td><span class="badge badge-editor">Gestor Datos</span></td><td>Logística</td><td>Hoy 08:45</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">IL</div> Irene Luna</td><td>i.luna@deoleo.com</td><td><span class="badge badge-viewer">Auditor</span></td><td>RRHH Corp</td><td>Ayer</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">TS</div> Tom S.</td><td>t.smith@deoleo.com</td><td><span class="badge badge-admin">Admin</span></td><td>Global IT</td><td>Hace 1h</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">OL</div> Olga López</td><td>o.lopez@deoleo.com</td><td><span class="badge badge-editor">Gestor Datos</span></td><td>Talento</td><td>20/01/2026</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">MS</div> Miguel S.</td><td>m.santos@deoleo.com</td><td><span class="badge badge-viewer">Auditor</span></td><td>PRL Fábrica</td><td>21/01/2026</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+
+                        <tr><td><div class="user-avatar">VM</div> Victoria M.</td><td>v.mora@deoleo.com</td><td><span class="badge badge-editor">Gestor Datos</span></td><td>Legal ES</td><td>Hoy</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">RN</div> Roberto N.</td><td>r.navarro@deoleo.com</td><td><span class="badge badge-viewer">Auditor</span></td><td>Seguridad</td><td>Hace 5d</td><td><span class="text-danger">Inactivo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">CA</div> Carmen A.</td><td>c.arroyo@deoleo.com</td><td><span class="badge badge-editor">Gestor Datos</span></td><td>Compensación</td><td>Ayer</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">PA</div> Pablo A.</td><td>p.alcalde@deoleo.com</td><td><span class="badge badge-admin">Admin</span></td><td>Redes</td><td>Ahora</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">SL</div> Sandra L.</td><td>s.lara@deoleo.com</td><td><span class="badge badge-viewer">Auditor</span></td><td>Sostenibilidad</td><td>18/01/2026</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">DP</div> Diego P.</td><td>d.parra@deoleo.com</td><td><span class="badge badge-editor">Gestor Datos</span></td><td>Compras</td><td>Hoy 10:15</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">LA</div> Laura A.</td><td>l.alonso@deoleo.com</td><td><span class="badge badge-viewer">Auditor</span></td><td>Estrategia</td><td>Hace 12h</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">HM</div> Hugo M.</td><td>h.martin@deoleo.com</td><td><span class="badge badge-editor">Gestor Datos</span></td><td>Almacén</td><td>Lunes</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">EA</div> Eva A.</td><td>e.aguilar@deoleo.com</td><td><span class="badge badge-viewer">Auditor</span></td><td>I+D</td><td>Ayer</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
+                        <tr><td><div class="user-avatar">SR</div> Sergio R.</td><td>s.ruiz@deoleo.com</td><td><span class="badge badge-admin">Admin</span></td><td>DevOps</td><td>Hoy 09:45</td><td><span class="text-success">Activo</span></td><td><button class="btn btn-xs btn-primary"><i class="ti-pencil"></i></button></td></tr>
                       </tbody>
                     </table>
                   </div>
@@ -710,56 +467,28 @@
           </div>
         </div>
       </div>
-      <!--**********************************
-            Content body end
-        ***********************************-->
 
-      <!--**********************************
-            Footer start
-        ***********************************-->
       <div class="footer">
-        <div class="copyright">
-          <div class="d-flex align-items-center justify-content-center">
-            <p class="mb-0">© 2026 Deoleo S.A. - Sistema de Recursos Humanos</p>
-          </div>
-          <p class="mt-2 mb-0">
-            <small>
-              <a href="#" style="color: #0f5c00">Política de Privacidad</a> |
-              <a href="#" style="color: #0f5c00">Aviso Legal</a>
-            </small>
-          </p>
+        <div class="copyright text-center">
+            <p>© 2026 Deoleo S.A. - Identity & Access Management</p>
         </div>
       </div>
-      <!--**********************************
-            Footer end
-        ***********************************-->
-
-      <!--**********************************
-           Support ticket button start
-        ***********************************-->
-
-      <!--**********************************
-           Support ticket button end
-        ***********************************-->
     </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
 
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <!-- Required vendors -->
     <script src="./vendor/global/global.min.js"></script>
     <script src="./js/quixnav-init.js"></script>
     <script src="./js/custom.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
 
-    <script src="./vendor/chartist/js/chartist.min.js"></script>
-
-    <script src="./vendor/moment/moment.min.js"></script>
-    <script src="./vendor/pg-calendar/js/pignose.calendar.min.js"></script>
-
-    <script src="./js/dashboard/dashboard-2.js"></script>
-    <!-- Circle progress -->
+    <script>
+      $(document).ready(function() {
+          $('#usuariosTable').DataTable({
+              "language": { "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json" },
+              "pageLength": 10,
+              "dom": '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>rtip'
+          });
+      });
+    </script>
   </body>
 </html>

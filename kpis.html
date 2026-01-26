@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -202,7 +202,7 @@
             <li>
               <a href="inteligencia.html" aria-expanded="false">
                 <i class="icon icon-world-2"></i>
-                <span class="nav-text">Informes con IA</span>
+                <span class="nav-text">Asistente Virtual RRHH</span>
               </a>
             </li>
             <li class="nav-label">ANALTICS</li>
@@ -220,7 +220,41 @@
               </a>
             </li>
 
-            <li class="nav-label">Gestión de Personal</li>
+            <li class="nav-label">Configuración</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-layout-25"></i>
+                <span class="nav-text">Configuración</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="gestion-departamentos.html">Departamentos</a></li>
+                <li><a href="gestion-usuarios.html">Gestión de Usuarios</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-label">Administración Sistema</li>
+            <li>
+              <a
+                class="has-arrow"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                <i class="icon icon-single-copy-06"></i>
+                <span class="nav-text">Gobierno de Datos</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="trazabilidad.html">Trazabilidad y Logs</a></li>
+                <li>
+                  <a href="fuentes-origen.html">Fuentes de Origen (API)</a>
+                </li>
+              </ul>
+            </li>
+
+            <!--             <li class="nav-label">Gestión de Personal</li>
             <li>
               <a
                 class="has-arrow"
@@ -368,41 +402,7 @@
                 <li><a href="#">Informes</a></li>
                 <li><a href="#">Plantillas</a></li>
               </ul>
-            </li>
-
-            <li class="nav-label">Configuración</li>
-            <li>
-              <a
-                class="has-arrow"
-                href="javascript:void()"
-                aria-expanded="false"
-              >
-                <i class="icon icon-layout-25"></i>
-                <span class="nav-text">Configuración</span>
-              </a>
-              <ul aria-expanded="false">
-                <li><a href="#">Departamentos</a></li>
-                <li><a href="#">Puestos de Trabajo</a></li>
-                <li><a href="#">Usuarios</a></li>
-              </ul>
-            </li>
-
-            <li class="nav-label">Sistema</li>
-            <li>
-              <a
-                class="has-arrow"
-                href="javascript:void()"
-                aria-expanded="false"
-              >
-                <i class="icon icon-single-copy-06"></i>
-                <span class="nav-text">Sistema</span>
-              </a>
-              <ul aria-expanded="false">
-                <li><a href="#">Mi Perfil</a></li>
-                <li><a href="#">Configuración</a></li>
-                <li><a href="#">Cerrar Sesión</a></li>
-              </ul>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -616,38 +616,89 @@
         type: "bar",
         data: {
           labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun"],
-          datasets: [{ label: "Coste Real", data: [420, 450, 430, 480, 470, 490], backgroundColor: colors.primary }],
+          datasets: [
+            {
+              label: "Coste Real",
+              data: [420, 450, 430, 480, 470, 490],
+              backgroundColor: colors.primary,
+            },
+          ],
         },
         options: commonOptions,
       });
 
       const cGen = new Chart(document.getElementById("chartGenero"), {
         type: "doughnut",
-        data: { labels: ["Hombres", "Mujeres"], datasets: [{ data: [120, 127], backgroundColor: [colors.gray, colors.lime] }] },
+        data: {
+          labels: ["Hombres", "Mujeres"],
+          datasets: [
+            { data: [120, 127], backgroundColor: [colors.gray, colors.lime] },
+          ],
+        },
         options: { ...commonOptions, cutout: "70%" },
       });
 
       const cNivel = new Chart(document.getElementById("chartNivel"), {
         type: "pie",
-        data: { labels: ["Dir", "Man", "Staff"], datasets: [{ data: [15, 45, 187], backgroundColor: [colors.primary, colors.lime, colors.gray] }] },
+        data: {
+          labels: ["Dir", "Man", "Staff"],
+          datasets: [
+            {
+              data: [15, 45, 187],
+              backgroundColor: [colors.primary, colors.lime, colors.gray],
+            },
+          ],
+        },
         options: commonOptions,
       });
 
       const cAus = new Chart(document.getElementById("chartAusencia"), {
         type: "radar",
-        data: { labels: ["IT", "Ventas", "Prod", "RRHH", "Fin"], datasets: [{ label: "Índice Bajas", data: [2, 5, 8, 1, 3], borderColor: colors.primary, backgroundColor: "rgba(15, 92, 0, 0.2)" }] },
+        data: {
+          labels: ["IT", "Ventas", "Prod", "RRHH", "Fin"],
+          datasets: [
+            {
+              label: "Índice Bajas",
+              data: [2, 5, 8, 1, 3],
+              borderColor: colors.primary,
+              backgroundColor: "rgba(15, 92, 0, 0.2)",
+            },
+          ],
+        },
         options: commonOptions,
       });
 
       const cAnt = new Chart(document.getElementById("chartAntiguedad"), {
         type: "bar",
-        data: { labels: ["<1y", "1-3y", "3-5y", ">5y"], datasets: [{ label: "Empleados", data: [40, 90, 60, 57], backgroundColor: colors.lime, indexAxis: "y" }] },
+        data: {
+          labels: ["<1y", "1-3y", "3-5y", ">5y"],
+          datasets: [
+            {
+              label: "Empleados",
+              data: [40, 90, 60, 57],
+              backgroundColor: colors.lime,
+              indexAxis: "y",
+            },
+          ],
+        },
         options: commonOptions,
       });
 
       const cRot = new Chart(document.getElementById("chartRotacion"), {
         type: "line",
-        data: { labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun"], datasets: [{ label: "% Rotación", data: [1.2, 1.1, 1.5, 2.0, 1.8, 1.4], borderColor: colors.lime, fill: true, backgroundColor: "rgba(191, 205, 49, 0.1)", tension: 0.4 }] },
+        data: {
+          labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun"],
+          datasets: [
+            {
+              label: "% Rotación",
+              data: [1.2, 1.1, 1.5, 2.0, 1.8, 1.4],
+              borderColor: colors.lime,
+              fill: true,
+              backgroundColor: "rgba(191, 205, 49, 0.1)",
+              tension: 0.4,
+            },
+          ],
+        },
         options: commonOptions,
       });
 
@@ -655,7 +706,9 @@
         select.addEventListener("change", () => {
           document.getElementById("preloader").style.display = "block";
           setTimeout(() => {
-            cCostes.data.datasets[0].data = cCostes.data.datasets[0].data.map(v => v * (0.9 + Math.random() * 0.2));
+            cCostes.data.datasets[0].data = cCostes.data.datasets[0].data.map(
+              (v) => v * (0.9 + Math.random() * 0.2),
+            );
             cCostes.update();
             document.getElementById("preloader").style.display = "none";
           }, 600);

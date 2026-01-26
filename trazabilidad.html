@@ -1,71 +1,34 @@
 <!doctype html>
-
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Deoleo. Líder Mundial del Aceite de Oliva</title>
-    <!-- Favicon icon -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="./images/favicon.png"
-    />
-    <link
-      href="./vendor/pg-calendar/css/pignose.calendar.min.css"
-      rel="stylesheet"
-    />
-    <link href="./vendor/chartist/css/chartist.min.css" rel="stylesheet" />
+    <title>Deoleo - Panel de Trazabilidad</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png" />
+    
+    <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet" />
+    
+    <style>
+        .table thead th { color: #0f5c00 !important; font-weight: 700; text-transform: uppercase; font-size: 12px; border-bottom: 2px solid #bfcd31 !important; }
+        .log-container { background: #1a1a1a; color: #00ff00; font-family: 'Courier New', Courier, monospace; padding: 15px; border-radius: 5px; font-size: 13px; max-height: 300px; overflow-y: auto; }
+        /* Ajuste para que el buscador de DataTable combine con el estilo */
+        .dataTables_filter input { border: 1px solid #ddd; border-radius: 20px; padding: 5px 15px; margin-left: 10px; }
+        .page-item.active .page-link { background-color: #0f5c00; border-color: #0f5c00; }
+    </style>
   </head>
 
   <body>
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
-      <div class="sk-three-bounce">
-        <div class="sk-child sk-bounce1"></div>
-        <div class="sk-child sk-bounce2"></div>
-        <div class="sk-child sk-bounce3"></div>
-      </div>
-    </div>
-    <!--*******************
-        Preloader end
-    ********************-->
+    <div id="preloader"><div class="sk-three-bounce"><div class="sk-child sk-bounce1"></div><div class="sk-child sk-bounce2"></div><div class="sk-child sk-bounce3"></div></div></div>
 
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
     <div id="main-wrapper">
-      <!--**********************************
-            Nav header start
-        ***********************************-->
-      <div
-        class="nav-header"
-        style="
-          background: #52525c;
-          padding: 15px 20px;
-          border-bottom: 2px solid #fdfdfd;
-        "
-      >
+      <div class="nav-header" style="background: #52525c; padding: 15px 20px; border-bottom: 2px solid #fdfdfd;">
         <a href="dasboard.html" class="brand-logo">
-          <img
-            src="./images/logogris.webp"
-            alt="Deoleo"
-            style="width: 160px; filter: brightness(3.5) contrast(0.8)"
-          />
+          <img src="./images/logogris.webp" alt="Deoleo" style="width: 160px; filter: brightness(3.5) contrast(0.8)" />
         </a>
       </div>
-      <!--**********************************
-            Nav header end
-        ***********************************-->
 
-      <!--**********************************
-            Header start
-        ***********************************-->
       <div class="header">
         <div class="header-content">
           <nav class="navbar navbar-expand">
@@ -203,13 +166,7 @@
           </nav>
         </div>
       </div>
-      <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
 
-      <!--**********************************
-            Sidebar start
-        ***********************************-->
       <div class="quixnav">
         <div class="quixnav-scroll">
           <ul class="metismenu" id="menu">
@@ -243,7 +200,7 @@
               </a>
             </li>
 
-            <li class="nav-label">Configuración</li>
+             <li class="nav-label">Configuración</li>
             <li>
               <a
                 class="has-arrow"
@@ -256,6 +213,7 @@
               <ul aria-expanded="false">
                 <li><a href="gestion-departamentos.html">Departamentos</a></li>
                 <li><a href="gestion-usuarios.html">Gestión de Usuarios</a></li>
+                
               </ul>
             </li>
 
@@ -271,13 +229,11 @@
               </a>
               <ul aria-expanded="false">
                 <li><a href="trazabilidad.html">Trazabilidad y Logs</a></li>
-                <li>
-                  <a href="fuentes-origen.html">Fuentes de Origen (API)</a>
-                </li>
+                <li><a href="fuentes-origen.html">Fuentes de Origen (API)</a></li>
               </ul>
             </li>
 
-            <!--             <li class="nav-label">Gestión de Personal</li>
+<!--             <li class="nav-label">Gestión de Personal</li>
             <li>
               <a
                 class="has-arrow"
@@ -426,281 +382,72 @@
                 <li><a href="#">Plantillas</a></li>
               </ul>
             </li> -->
+
+
+
+
           </ul>
         </div>
       </div>
-      <!--**********************************
-            Sidebar end
-        ***********************************-->
 
-      <!--**********************************
-            Content body start
-        ***********************************-->
       <div class="content-body">
         <div class="container-fluid">
           <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
               <div class="welcome-text">
-                <h4 style="color: #0f5c00">
-                  ¡Hola, bienvenido Juan Moleres Vidalo
-                </h4>
-                <p class="mb-0">Panel de Control de Recursos Humanos</p>
-              </div>
-            </div>
-            <div
-              class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex"
-            >
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item active">
-                  <a href="javascript:void(0)">Dashboard RRHH</a>
-                </li>
-                <li class="breadcrumb-item">
-                  <a href="javascript:void(0)">RRHH</a>
-                </li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-3 col-sm-6">
-              <div class="card">
-                <div class="stat-widget-one card-body">
-                  <div class="stat-icon d-inline-block">
-                    <i class="ti-user text-success border-success"></i>
-                  </div>
-                  <div class="stat-content d-inline-block">
-                    <div class="stat-text">Total Empleados</div>
-                    <div class="stat-digit">247</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="card">
-                <div class="stat-widget-one card-body">
-                  <div class="stat-icon d-inline-block">
-                    <i class="ti-plus text-primary border-primary"></i>
-                  </div>
-                  <div class="stat-content d-inline-block">
-                    <div class="stat-text">Nuevos Contratos</div>
-                    <div class="stat-digit">12</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="card">
-                <div class="stat-widget-one card-body">
-                  <div class="stat-icon d-inline-block">
-                    <i class="ti-calendar text-pink border-pink"></i>
-                  </div>
-                  <div class="stat-content d-inline-block">
-                    <div class="stat-text">Vacaciones Activas</div>
-                    <div class="stat-digit">34</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="card">
-                <div class="stat-widget-one card-body">
-                  <div class="stat-icon d-inline-block">
-                    <i class="ti-alert text-danger border-danger"></i>
-                  </div>
-                  <div class="stat-content d-inline-block">
-                    <div class="stat-text">Incidencias</div>
-                    <div class="stat-digit">8</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-8">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title">Nóminas y Gastos de Personal</h4>
-                </div>
-                <div class="card-body">
-                  <div class="ct-bar-chart mt-5"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Distribución por Departamentos</h4>
-                  <div class="ct-pie-chart"></div>
-                </div>
+                <h4 style="color: #0f5c00">Panel de Gobierno de Datos</h4>
+                <p class="mb-0">Auditoría técnica y trazabilidad de fuentes Cornestone/Oracle</p>
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-lg-6 col-md-12">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title">Book Mensual RRHH</h4>
-                  <span class="badge badge-primary">Febrero 2026</span>
-                </div>
-                <div class="card-body">
-                  <div
-                    class="text-center p-4"
-                    style="
-                      border: 2px dashed #ddd;
-                      border-radius: 10px;
-                      background: #f9f9f9;
-                    "
-                  >
-                    <i
-                      class="ti-book"
-                      style="font-size: 50px; color: #0f5c00"
-                    ></i>
-                    <h5 class="mt-3">Resumen Ejecutivo de Gestión</h5>
-                    <p class="text-muted">
-                      Descarga el reporte completo de KPIs, evolución de
-                      plantilla y objetivos del mes.
-                    </p>
-                    <a
-                      href="docs/Book_Octubre_24.pdf"
-                      target="_blank"
-                      class="btn btn-primary mt-2"
-                      style="background-color: #bfcd31; border-color: #0f5c00"
-                    >
-                      <i class="ti-download mr-2"></i> Descargar PDF
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6 col-md-12">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title">
-                    AI Highlights
-                    <span class="badge badge-xs badge-info ml-2">Beta AI</span>
-                  </h4>
-                </div>
-                <div class="card-body">
-                  <div
-                    class="ai-insight-item mb-3 p-3"
-                    style="border-left: 4px solid #bfcd31; background: #fbfee7"
-                  >
-                    <h6 class="text-dark">
-                      <i class="ti-check-box mr-2"></i>Predicción de Rotación
-                    </h6>
-                    <p class="mb-0 mt-1 small">
-                      Se detecta un riesgo leve de rotación en el departamento
-                      de <strong>IT</strong> para el próximo trimestre. Se
-                      recomienda revisar planes de carrera.
-                    </p>
-                  </div>
-
-                  <div
-                    class="ai-insight-item mb-3 p-3"
-                    style="border-left: 4px solid #0f5c00; background: #f4faf2"
-                  >
-                    <h6 class="text-dark">
-                      <i class="ti-check-box mr-2"></i>Eficiencia en
-                      Contratación
-                    </h6>
-                    <p class="mb-0 mt-1 small">
-                      El tiempo de cobertura de vacantes ha disminuido un
-                      <strong>12%</strong> respecto al mes anterior gracias al
-                      nuevo portal.
-                    </p>
-                  </div>
-
-                  <div
-                    class="ai-insight-item p-3"
-                    style="border-left: 4px solid #52525c; background: #f6f6f7"
-                  >
-                    <h6 class="text-dark">
-                      <i class="ti-check-box mr-2"></i>Sugerencia de Formación
-                    </h6>
-                    <p class="mb-0 mt-1 small">
-                      El 80% del equipo de Ventas ha completado el módulo
-                      básico. Es buen momento para lanzar el nivel avanzado.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Calendario RRHH</h4>
-                  <div class="year-calendar"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-8">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title">Solicitudes Recientes</h4>
-                </div>
+            <div class="col-12">
+              <div class="card" style="border-top: 3px solid #bfcd31; box-shadow: 0px 4px 15px rgba(0,0,0,0.1);">
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table student-data-table m-t-20">
+                    <table id="trazabilidadTable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>Empleado</th>
-                          <th>Tipo</th>
-                          <th>Fecha</th>
+                          <th>ID</th>
+                          <th>Flujo de Información</th>
+                          <th>Última Carga</th>
+                          <th>Origen</th>
                           <th>Estado</th>
-                          <th>Departamento</th>
+                          <th>Acción</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td>Laura Méndez</td>
-                          <td>Vacaciones</td>
-                          <td>15/01/2024</td>
-                          <td>
-                            <span class="badge badge-success">Aprobado</span>
-                          </td>
-                          <td>Marketing</td>
-                        </tr>
-                        <tr>
-                          <td>Pedro Sánchez</td>
-                          <td>Formación</td>
-                          <td>14/01/2024</td>
-                          <td>
-                            <span class="badge badge-warning">Pendiente</span>
-                          </td>
-                          <td>IT</td>
-                        </tr>
-                        <tr>
-                          <td>Ana Torres</td>
-                          <td>Teletrabajo</td>
-                          <td>13/01/2024</td>
-                          <td>
-                            <span class="badge badge-success">Aprobado</span>
-                          </td>
-                          <td>Ventas</td>
-                        </tr>
-                        <tr>
-                          <td>Miguel Ángel</td>
-                          <td>Baja Médica</td>
-                          <td>12/01/2024</td>
-                          <td>
-                            <span class="badge badge-danger">En revisión</span>
-                          </td>
-                          <td>Producción</td>
-                        </tr>
-                        <tr>
-                          <td>Elena Castro</td>
-                          <td>Cambio Turno</td>
-                          <td>11/01/2024</td>
-                          <td>
-                            <span class="badge badge-success">Aprobado</span>
-                          </td>
-                          <td>Calidad</td>
-                        </tr>
+<tbody>
+                        <tr><td>01</td><td>Nóminas España</td><td>25/01/2026 08:00</td><td>SAP S/4HANA</td><td><span class="badge badge-success">Validado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Nóminas ES', 'PY-ES-992', 'SAP')">Ver Log</button></td></tr>
+                        <tr><td>02</td><td>Control Presencia HQ</td><td>26/01/2026 07:30</td><td>Kronos Cloud</td><td><span class="badge badge-success">Sincronizado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Presencia', 'KR-HQ-1', 'Kronos')">Ver Log</button></td></tr>
+                        <tr><td>03</td><td>Desempeño Global</td><td>20/01/2026</td><td>Oracle Talent</td><td><span class="badge badge-warning">En Revisión</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Desempeño', 'ORC-GLB', 'Oracle')">Ver Log</button></td></tr>
+                        <tr><td>04</td><td>Organigrama Azure</td><td>Hoy 02:00</td><td>Azure AD</td><td><span class="badge badge-success">Sincronizado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Azure AD', 'MS-AD-01', 'Microsoft')">Ver Log</button></td></tr>
+                        <tr><td>05</td><td>LMS Formación</td><td>24/01/2026</td><td>Moodle Corp</td><td><span class="badge badge-success">OK</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('LMS', 'MD-90', 'Moodle')">Ver Log</button></td></tr>
+                        <tr><td>06</td><td>ATS Reclutamiento</td><td>Hoy 09:12</td><td>Workday</td><td><span class="badge badge-info">Procesando</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Workday', 'WD-ATS-1', 'Workday API')">Ver Log</button></td></tr>
+                        <tr><td>07</td><td>PRL Salud Laboral</td><td>15/01/2026</td><td>EcoSira</td><td><span class="badge badge-danger">Error Sync</span></td><td><button class="btn btn-xs btn-danger btn-rounded" onclick="openLog('PRL', 'ERR-504', 'External')">Ver Error</button></td></tr>
+                        <tr><td>08</td><td>Beneficios Cobee</td><td>22/01/2026</td><td>Cobee Hub</td><td><span class="badge badge-success">Validado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Cobee', 'CB-01', 'Cobee')">Ver Log</button></td></tr>
+                        <tr><td>09</td><td>Gastos Travel</td><td>23/01/2026</td><td>Expensify</td><td><span class="badge badge-success">Conciliado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Gastos', 'EXP-09', 'Expensify')">Ver Log</button></td></tr>
+                        <tr><td>10</td><td>Firebase App Eventos</td><td>Hoy 10:00</td><td>Firebase</td><td><span class="badge badge-success">Live</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Firebase', 'FB-01', 'Google Cloud')">Ver Log</button></td></tr>
+                        <tr><td>11</td><td>Nóminas Italia</td><td>25/01/2026 08:30</td><td>Zucchetti</td><td><span class="badge badge-success">Validado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Nóminas IT', 'PY-IT-11', 'Zucchetti')">Ver Log</button></td></tr>
+                        <tr><td>12</td><td>Control Acceso Fábrica</td><td>26/01/2026 06:00</td><td>Siedle System</td><td><span class="badge badge-success">Sincronizado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Fábrica', 'SIED-F1', 'On-Premise')">Ver Log</button></td></tr>
+                        <tr><td>13</td><td>Encuestas Clima</td><td>01/01/2026</td><td>Qualtrics</td><td><span class="badge badge-success">Finalizado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Clima', 'QUALT-26', 'Qualtrics')">Ver Log</button></td></tr>
+                        <tr><td>14</td><td>Gestión Flota Vehículos</td><td>20/01/2026</td><td>LeasePlan API</td><td><span class="badge badge-info">Pendiente</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Flota', 'LP-V01', 'LeasePlan')">Ver Log</button></td></tr>
+                        <tr><td>15</td><td>Seguros Médicos</td><td>15/01/2026</td><td>Sanitas B2B</td><td><span class="badge badge-success">Validado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Seguros', 'SAN-B2B', 'Sanitas')">Ver Log</button></td></tr>
+                        <tr><td>16</td><td>Bonos e Incentivos</td><td>24/01/2026</td><td>Excel Data Lake</td><td><span class="badge badge-warning">Carga Manual</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Bonos', 'MAN-B1', 'DataLake')">Ver Log</button></td></tr>
+                        <tr><td>17</td><td>Contratos Digitales</td><td>Hoy 08:45</td><td>DocuSign</td><td><span class="badge badge-success">OK</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Contratos', 'DOCU-S', 'DocuSign API')">Ver Log</button></td></tr>
+                        <tr><td>18</td><td>Cursos Seguridad</td><td>22/01/2026</td><td>Skillsoft</td><td><span class="badge badge-success">Sincronizado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Skillsoft', 'SK-99', 'Skillsoft')">Ver Log</button></td></tr>
+                        <tr><td>19</td><td>Tickets Guardería</td><td>21/01/2026</td><td>Edenred</td><td><span class="badge badge-success">Validado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Edenred', 'ED-77', 'Edenred')">Ver Log</button></td></tr>
+                        <tr><td>20</td><td>Plan de Pensiones</td><td>10/01/2026</td><td>VidaCaixa</td><td><span class="badge badge-success">OK</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Pensiones', 'VCAIXA', 'CaixaBank')">Ver Log</button></td></tr>
+                        <tr><td>21</td><td>Nóminas USA</td><td>25/01/2026</td><td>ADP Workforce</td><td><span class="badge badge-success">Validado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Nóminas USA', 'ADP-26', 'ADP')">Ver Log</button></td></tr>
+                        <tr><td>22</td><td>Holiday Planner</td><td>26/01/2026</td><td>Custom Portal</td><td><span class="badge badge-success">Sincronizado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Holidays', 'CP-HOL', 'Web App')">Ver Log</button></td></tr>
+                        <tr><td>23</td><td>Stock Options</td><td>05/01/2026</td><td>Morgan Stanley</td><td><span class="badge badge-warning">Trimestral</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Stock', 'MS-STOCK', 'Financial API')">Ver Log</button></td></tr>
+                        <tr><td>24</td><td>Dato Maestro Empleado</td><td>Siempre</td><td>MasterData Hub</td><td><span class="badge badge-success">Real-time</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('MasterData', 'MDH-01', 'Core Hub')">Ver Log</button></td></tr>
+                        <tr><td>25</td><td>Evaluación 360</td><td>20/01/2026</td><td>SurveyMonkey</td><td><span class="badge badge-info">En Proceso</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Survey', 'SM-360', 'SurveyMonkey')">Ver Log</button></td></tr>
+                        <tr><td>26</td><td>Logs de Acceso VPN</td><td>Hoy 07:00</td><td>Fortinet</td><td><span class="badge badge-success">OK</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('VPN', 'FORT-LOG', 'FortiGate')">Ver Log</button></td></tr>
+                        <tr><td>27</td><td>Registro de Jornada</td><td>26/01/2026</td><td>Factorial HR</td><td><span class="badge badge-success">Sincronizado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Jornada', 'FACT-HR', 'Factorial')">Ver Log</button></td></tr>
+                        <tr><td>28</td><td>Ayudas al Estudio</td><td>18/01/2026</td><td>SharePoint IT</td><td><span class="badge badge-success">Validado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Ayudas', 'SP-STUDY', 'SharePoint')">Ver Log</button></td></tr>
+                        <tr><td>29</td><td>Auditoría ISO 27001</td><td>12/01/2026</td><td>Gantt System</td><td><span class="badge badge-primary">Auditado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('ISO', 'ISO-27', 'Security')">Ver Log</button></td></tr>
+                        <tr><td>30</td><td>Backup Data Lake</td><td>Anoche</td><td>AWS S3 GLUE</td><td><span class="badge badge-success">Cerrado</span></td><td><button class="btn btn-xs btn-primary btn-rounded" onclick="openLog('Backup', 'AWS-S3', 'Amazon')">Ver Log</button></td></tr>
                       </tbody>
                     </table>
                   </div>
@@ -710,56 +457,62 @@
           </div>
         </div>
       </div>
-      <!--**********************************
-            Content body end
-        ***********************************-->
 
-      <!--**********************************
-            Footer start
-        ***********************************-->
-      <div class="footer">
-        <div class="copyright">
-          <div class="d-flex align-items-center justify-content-center">
-            <p class="mb-0">© 2026 Deoleo S.A. - Sistema de Recursos Humanos</p>
+      <div class="modal fade" id="modalLog">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content" style="border-radius: 15px;">
+            <div class="modal-header" style="background: #0f5c00; color: white;">
+              <h5 class="modal-title text-white"><i class="ti-search mr-2"></i> Trace de Auditoría: <span id="modalTitle"></span></h5>
+              <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body bg-light">
+                <p><strong>ID:</strong> <span id="modalID"></span> | <strong>Fuente:</strong> <span id="modalSource"></span></p>
+                <div class="log-container" id="logContent"></div>
+            </div>
           </div>
-          <p class="mt-2 mb-0">
-            <small>
-              <a href="#" style="color: #0f5c00">Política de Privacidad</a> |
-              <a href="#" style="color: #0f5c00">Aviso Legal</a>
-            </small>
-          </p>
         </div>
       </div>
-      <!--**********************************
-            Footer end
-        ***********************************-->
 
-      <!--**********************************
-           Support ticket button start
-        ***********************************-->
-
-      <!--**********************************
-           Support ticket button end
-        ***********************************-->
+      <div class="footer">
+        <div class="copyright text-center">
+            <p>© 2026 Deoleo S.A. - Seguridad e Integridad del Dato</p>
+        </div>
+      </div>
     </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
 
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <!-- Required vendors -->
     <script src="./vendor/global/global.min.js"></script>
     <script src="./js/quixnav-init.js"></script>
     <script src="./js/custom.min.js"></script>
+    
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
 
-    <script src="./vendor/chartist/js/chartist.min.js"></script>
+    <script>
+      $(document).ready(function() {
+          // Inicialización de la DataTable con buscador y paginación en español
+          $('#trazabilidadTable').DataTable({
+              "language": {
+                  "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
+              },
+              "pageLength": 10, // Número de registros por página
+              "order": [[ 0, "asc" ]]
+          });
+      });
 
-    <script src="./vendor/moment/moment.min.js"></script>
-    <script src="./vendor/pg-calendar/js/pignose.calendar.min.js"></script>
-
-    <script src="./js/dashboard/dashboard-2.js"></script>
-    <!-- Circle progress -->
+      function openLog(titulo, id, fuente) {
+          document.getElementById('modalTitle').innerText = titulo;
+          document.getElementById('modalID').innerText = id;
+          document.getElementById('modalSource').innerText = fuente;
+          const time = new Date().toLocaleString();
+          
+          let logStr = `[${time}] INITIATING SYNC...<br>[${time}] CONNECTED TO ${fuente}<br>[${time}] PACKET VERIFICATION: OK<br>[${time}] SUCCESS: DATA INTEGRATED.`;
+          if(titulo === 'PRL') {
+              logStr = `[${time}] INITIATING SYNC...<br><span class='text-danger'>[${time}] ERROR: TIMEOUT GATEWAY 504</span><br>[${time}] ATTEMPTING RECONNECT...`;
+          }
+          
+          document.getElementById('logContent').innerHTML = logStr;
+          $('#modalLog').modal('show');
+      }
+    </script>
   </body>
 </html>
