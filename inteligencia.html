@@ -19,100 +19,7 @@
     />
     <link href="./vendor/chartist/css/chartist.min.css" rel="stylesheet" />
     <link href="./css/style.css" rel="stylesheet" />
-    
-    <!-- Estilos adicionales para el chat interactivo -->
-    <style>
-      /* Indicador de que la IA está escribiendo */
-      .typing-indicator {
-        display: none;
-        margin-left: 0;
-        margin-bottom: 20px;
-      }
-      
-      .typing-indicator.active {
-        display: block;
-      }
-      
-      .typing-dots {
-        display: inline-flex;
-        background: #0f5c00;
-        color: white;
-        padding: 15px;
-        border-radius: 15px;
-        max-width: 80%;
-      }
-      
-      .typing-dots span {
-        width: 8px;
-        height: 8px;
-        background-color: rgba(255, 255, 255, 0.7);
-        border-radius: 50%;
-        display: inline-block;
-        margin: 0 2px;
-        animation: typing 1.5s infinite ease-in-out;
-      }
-      
-      .typing-dots span:nth-child(1) {
-        animation-delay: 0s;
-      }
-      
-      .typing-dots span:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-      
-      .typing-dots span:nth-child(3) {
-        animation-delay: 0.4s;
-      }
-      
-      @keyframes typing {
-        0%, 60%, 100% {
-          transform: translateY(0);
-          background-color: rgba(255, 255, 255, 0.7);
-        }
-        30% {
-          transform: translateY(-5px);
-          background-color: white;
-        }
-      }
-      
-      /* Efecto para los botones de sugerencia */
-      .suggestion-btn {
-        transition: all 0.3s ease;
-        cursor: pointer;
-      }
-      
-      .suggestion-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-      
-      /* Mejoras para el área del chat */
-      .chat-container {
-        display: flex;
-        flex-direction: column;
-      }
-      
-      .chat-messages {
-        flex: 1;
-        overflow-y: auto;
-      }
-      
-      /* Estilo para mensajes nuevos */
-      .chat-message.new {
-        animation: fadeIn 0.5s ease;
-      }
-      
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      
-      /* Mejora para el input */
-      #messageInput:focus {
-        box-shadow: 0 0 0 3px rgba(15, 92, 0, 0.1);
-        border-color: #0a4700;
-      }
-    </style>
+
   </head>
 
   <body>
@@ -533,10 +440,7 @@
           <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
               <div class="welcome-text">
-                <h4 style="color: #0f5c00">
-                  ¡Hola, bienvenido!
-                </h4>
-                
+                <h4 style="color: #0f5c00">¡Hola, bienvenido!</h4>
               </div>
             </div>
             <div
@@ -574,7 +478,10 @@
                     "
                   >
                     <!-- Área de mensajes -->
-                    <div class="chat-messages" style="flex: 1; overflow-y: auto;">
+                    <div
+                      class="chat-messages"
+                      style="flex: 1; overflow-y: auto"
+                    >
                       <!-- Mensaje del asistente -->
                       <div class="chat-message assistant-message mb-4 new">
                         <div
@@ -607,7 +514,11 @@
                           </div>
                           <div
                             class="message-time"
-                            style="font-size: 11px; opacity: 0.8; margin-top: 5px"
+                            style="
+                              font-size: 11px;
+                              opacity: 0.8;
+                              margin-top: 5px;
+                            "
                           >
                             <span class="time">10:30 AM</span>
                           </div>
@@ -677,8 +588,8 @@
                           </div>
                           <div class="message-content">
                             ¡Por supuesto! Actualmente tienes
-                            <strong>247 empleados activos</strong> en la empresa.
-                            <br /><br />
+                            <strong>247 empleados activos</strong> en la
+                            empresa. <br /><br />
                             Desglose por departamentos:
                             <br />
                             • Producción: 85 empleados<br />
@@ -689,7 +600,11 @@
                           </div>
                           <div
                             class="message-time"
-                            style="font-size: 11px; opacity: 0.8; margin-top: 5px"
+                            style="
+                              font-size: 11px;
+                              opacity: 0.8;
+                              margin-top: 5px;
+                            "
                           >
                             <span class="time">10:32 AM</span>
                           </div>
@@ -707,7 +622,7 @@
                     </div>
 
                     <!-- Área de escritura -->
-                    <div class="chat-input mt-4" style="flex-shrink: 0;">
+                    <div class="chat-input mt-4" style="flex-shrink: 0">
                       <div class="input-group">
                         <input
                           type="text"
@@ -715,7 +630,7 @@
                           id="messageInput"
                           placeholder="Escribe tu mensaje aquí..."
                           style="
-                            border: 1px solid #e7e8eb;;
+                            border: 1px solid #e7e8eb;
                             border-radius: 25px;
                             padding: 15px 20px;
                           "
@@ -726,8 +641,8 @@
                             id="sendButton"
                             type="button"
                             style="
-                              background: #e7e8eb;;
-                              border-color: #e7e8eb;;
+                              background: #e7e8eb;
+                              border-color: #e7e8eb;
                               border-radius: 25px;
                               padding: 15px 25px;
                             "
@@ -739,39 +654,47 @@
                       <div class="suggestions mt-2 text-center">
                         <small class="text-muted">Sugerencias rápidas: </small>
                         <button
-                          class="btn btn-outline-light  mx-1 suggestion-btn"
-                          style="border-color: #e7e8eb;; color: black;"
+                          class="btn btn-outline-light mx-1 suggestion-btn"
+                          style="border-color: #e7e8eb; color: black"
                           data-question="¿Cuál es el estado de las nóminas?"
                         >
                           Estado nóminas
                         </button>
                         <button
                           class="btn btn-outline-light mx-1 suggestion-btn"
-                          style="border-color: #e7e8eb;; color: black;"
+                          style="border-color: #e7e8eb; color: black"
                           data-question="¿Hay nuevas contrataciones?"
                         >
                           Contrataciones
                         </button>
                         <button
                           class="btn btn-sm btn-outline-light mx-1 suggestion-btn"
-                          style="border-color: #e7e8eb;; color: black;"
+                          style="border-color: #e7e8eb; color: black"
                           data-question="¿Qué formaciones hay programadas?"
                         >
                           Formaciones
                         </button>
                         <button
                           class="btn btn-sm btn-outline-light mx-1 suggestion-btn"
-                          style="border-color: #e7e8eb;; color: black;"
+                          style="border-color: #e7e8eb; color: black"
                           data-question="¿Cuántas bajas médicas hay activas?"
                         >
                           Bajas médicas
                         </button>
                         <button
                           class="btn btn-sm btn-outline-light mx-1 suggestion-btn"
-                          style="border-color: #e7e8eb;; color: black;"
+                          style="border-color: #e7e8eb; color: black"
                           data-question="¿Cuántos empleados hay por departamento?"
                         >
                           Por departamento
+                        </button>
+                        <!-- Añade este botón adicional -->
+                        <button
+                          class="btn btn-sm btn-outline-light mx-1 suggestion-btn"
+                          style="border-color: #e7e8eb; color: black"
+                          data-question="¿Cuántos empleados activos hay?"
+                        >
+                          Empleados activos
                         </button>
                       </div>
                     </div>
@@ -832,129 +755,467 @@
     <script src="./vendor/pg-calendar/js/pignose.calendar.min.js"></script>
 
     <script src="./js/dashboard/dashboard-2.js"></script>
-    
+
     <!-- Script para el chat interactivo -->
     <script>
       // Base de conocimiento de la IA
+      // Base de conocimiento de la IA
       const knowledgeBase = {
-        // Empleados
+        // Empleados - Respuesta con tabla
         "empleados activos": {
-          respuesta: "Actualmente hay <strong>247 empleados activos</strong> en la empresa.<br><br>Desglose por departamentos:<br>• Producción: 85 empleados<br>• Ventas: 45 empleados<br>• IT: 35 empleados<br>• Marketing: 42 empleados<br>• Calidad: 40 empleados"
+          respuesta: `
+      Actualmente hay <strong>247 empleados activos</strong> en la empresa.
+      
+      <div class="chat-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Departamento</th>
+              <th>Empleados</th>
+              <th>Porcentaje</th>
+              <th>Tendencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Producción</td>
+              <td>85</td>
+              <td>34.4%</td>
+              <td><span class="mini-chart chart-green">↑</span> +5%</td>
+            </tr>
+            <tr>
+              <td>Ventas</td>
+              <td>45</td>
+              <td>18.2%</td>
+              <td><span class="mini-chart chart-green">↑</span> +2%</td>
+            </tr>
+            <tr>
+              <td>IT</td>
+              <td>35</td>
+              <td>14.2%</td>
+              <td><span class="mini-chart chart-blue">→</span> 0%</td>
+            </tr>
+            <tr>
+              <td>Marketing</td>
+              <td>42</td>
+              <td>17.0%</td>
+              <td><span class="mini-chart chart-green">↑</span> +3%</td>
+            </tr>
+            <tr>
+              <td>Calidad</td>
+              <td>40</td>
+              <td>16.2%</td>
+              <td><span class="mini-chart chart-red">↓</span> -1%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <small><em>Datos actualizados al ${new Date().toLocaleDateString()}</em></small>
+    `,
         },
-        "empleados por departamento": {
-          respuesta: "Distribución de empleados por departamento:<br><br>• Producción: 85 empleados<br>• Ventas: 45 empleados<br>• IT: 35 empleados<br>• Marketing: 42 empleados<br>• Calidad: 40 empleados<br>• RRHH: 12 empleados<br>• Finanzas: 18 empleados<br>• Logística: 22 empleados"
-        },
-        "contrataciones": {
-          respuesta: "Actualmente hay <strong>3 nuevas contrataciones en proceso</strong>.<br><br>Detalles:<br>• Desarrollador Full-Stack (IT) - 2 candidatos en fase final<br>• Representante de Ventas (Ventas) - 3 candidatos en proceso<br>• Técnico de Calidad (Calidad) - 1 candidato seleccionado<br><br>Próximas entrevistas: 5 para la próxima semana."
-        },
-        
-        // Vacaciones
-        "vacaciones pendientes": {
-          respuesta: "Hay <strong>8 solicitudes de vacaciones pendientes</strong> de aprobación.<br><br>Detalle de solicitudes:<br>• Laura Méndez (Marketing) - 5 días (del 15 al 19 de julio)<br>• Carlos Ruiz (IT) - 3 días (del 22 al 24 de julio)<br>• Ana Torres (Ventas) - 7 días (del 5 al 13 de agosto)<br>• Miguel Ángel (Producción) - 10 días (del 1 al 12 de agosto)<br>• Elena Castro (Calidad) - 4 días (del 8 al 11 de julio)<br>• Pedro Sánchez (IT) - 6 días (del 20 al 25 de agosto)<br>• Marta Rodríguez (Ventas) - 3 días (del 10 al 12 de septiembre)<br>• Luis Fernández (Producción) - 5 días (del 15 al 19 de julio)"
-        },
-        "solicitudes de vacaciones": {
-          respuesta: "Hay <strong>8 solicitudes de vacaciones pendientes</strong> de aprobación.<br><br>Detalle de solicitudes:<br>• Laura Méndez (Marketing) - 5 días (del 15 al 19 de julio)<br>• Carlos Ruiz (IT) - 3 días (del 22 al 24 de julio)<br>• Ana Torres (Ventas) - 7 días (del 5 al 13 de agosto)<br>• Miguel Ángel (Producción) - 10 días (del 1 al 12 de agosto)<br>• Elena Castro (Calidad) - 4 días (del 8 al 11 de julio)"
-        },
-        
-        // Nóminas
-        "estado nóminas": {
-          respuesta: "Las nóminas del mes de junio están <strong>procesadas al 100%</strong>.<br><br>Detalles:<br>• Total nóminas: 247<br>• Nóminas pagadas: 247<br>• Importe total: €1,245,320<br>• Nóminas pendientes: 0<br><br>Las nóminas de julio están programadas para el día 30. El proceso de cálculo comenzará el 25 de julio."
-        },
-        "nóminas": {
-          respuesta: "Estado actual de nóminas:<br><br>• Junio: Completadas (100%)<br>• Julio: Programadas para el 30 de julio<br>• Agosto: En preparación<br><br>Próximos vencimientos:<br>• Pago de nóminas: 30 de julio<br>• Declaraciones fiscales: 20 de julio<br>• Pagos a la Seguridad Social: 25 de julio"
-        },
-        
-        // Formación
-        "formaciones": {
-          respuesta: "Actualmente hay <strong>12 formaciones programadas</strong> para los próximos meses.<br><br>Próximas formaciones:<br>• Liderazgo Efectivo (20-21 julio) - 15 plazas<br>• Seguridad Informática (25-26 julio) - 20 plazas<br>• Gestión del Tiempo (1-2 agosto) - 25 plazas<br>• Excel Avanzado (5-6 agosto) - 18 plazas<br>• Comunicación Asertiva (10-11 agosto) - 20 plazas<br>• Prevención de Riesgos (15-16 agosto) - 30 plazas"
-        },
-        "formaciones programadas": {
-          respuesta: "Próximas formaciones programadas:<br><br>1. <strong>Liderazgo Efectivo</strong><br>   - Fechas: 20-21 de julio<br>   - Plazas: 15/15 (completo)<br>   - Formador: Dra. Elena Martínez<br><br>2. <strong>Seguridad Informática</strong><br>   - Fechas: 25-26 de julio<br>   - Plazas: 18/20 disponibles<br>   - Formador: Ing. Carlos López<br><br>3. <strong>Gestión del Tiempo</strong><br>   - Fechas: 1-2 de agosto<br>   - Plazas: 22/25 disponibles<br>   - Formador: Coach Ana Torres"
-        },
-        
-        // Incidencias y bajas
-        "bajas médicas": {
-          respuesta: "Actualmente hay <strong>2 bajas médicas activas</strong>:<br><br>• Roberto Díaz (IT) - Baja por enfermedad común (hasta el 15 de julio)<br>• Carmen Vidal (Producción) - Accidente laboral (hasta el 20 de julio)<br><br>Bajas recientemente finalizadas:<br>• Javier Gómez (Ventas) - Finalizada el 10 de julio<br>• María López (Marketing) - Finalizada el 5 de julio"
-        },
-        "incidencias": {
-          respuesta: "Actualmente hay <strong>3 incidencias activas</strong> en el sistema:<br><br>• Baja médica de Roberto Díaz (IT) - hasta el 15 de julio<br>• Equipo defectuoso en Producción - reportado hoy<br>• Problema de acceso al sistema de nóminas - resuelto<br><br>Incidencias resueltas en los últimos 7 días: 8"
-        },
-        
-        // Por defecto
-        "default": {
-          respuesta: "He entendido que preguntas sobre <strong>\"{query}\"</strong>. Como asistente de RRHH, puedo ayudarte con:<br><br>• Información sobre empleados (activos, por departamento)<br>• Estado de nóminas y pagos<br>• Gestión de vacaciones y ausencias<br>• Formaciones y desarrollo profesional<br>• Procesos de contratación<br>• Incidencias y bajas médicas<br><br>¿Puedes reformular tu pregunta para que pueda darte una respuesta más precisa?"
-        }
-      };
 
+        // Formaciones - Respuesta con gráfico
+        formaciones: {
+          respuesta: `
+      <strong>📊 Formaciones Programadas - Próximos 3 meses</strong>
+      
+      <div class="chat-chart">
+        <div class="chart-container">
+          <div class="chart-title">Participación por Departamento</div>
+          
+          <div class="chart-bar">
+            <div class="chart-label">Ventas (85%)</div>
+            <div class="chart-bar-value" style="width: 85%">
+              <span class="chart-value-text">42 empleados</span>
+            </div>
+          </div>
+          
+          <div class="chart-bar">
+            <div class="chart-label">IT (75%)</div>
+            <div class="chart-bar-value" style="width: 75%">
+              <span class="chart-value-text">26 empleados</span>
+            </div>
+          </div>
+          
+          <div class="chart-bar">
+            <div class="chart-label">Marketing (65%)</div>
+            <div class="chart-bar-value" style="width: 65%">
+              <span class="chart-value-text">27 empleados</span>
+            </div>
+          </div>
+          
+          <div class="chart-bar">
+            <div class="chart-label">Producción (45%)</div>
+            <div class="chart-bar-value" style="width: 45%">
+              <span class="chart-value-text">38 empleados</span>
+            </div>
+          </div>
+          
+          <div class="chart-bar">
+            <div class="chart-label">Calidad (40%)</div>
+            <div class="chart-bar-value" style="width: 40%">
+              <span class="chart-value-text">16 empleados</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <strong>Próximas formaciones destacadas:</strong><br>
+      • Liderazgo Efectivo (20-21 julio) - 15 plazas<br>
+      • Seguridad Informática (25-26 julio) - 20 plazas<br>
+      • Gestión del Tiempo (1-2 agosto) - 25 plazas
+    `,
+        },
+
+        // Nóminas - Respuesta con tabla detallada
+        "estado nóminas": {
+          respuesta: `
+      <strong>💰 Estado de Nóminas - Mes de Junio</strong>
+      
+      <div class="chat-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Estado</th>
+              <th>Cantidad</th>
+              <th>Importe Total</th>
+              <th>Progreso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="mini-chart chart-green">✓</span> Pagadas</td>
+              <td>235</td>
+              <td>€1,180,500</td>
+              <td>95%</td>
+            </tr>
+            <tr>
+              <td><span class="mini-chart chart-orange">⏳</span> Pendientes</td>
+              <td>12</td>
+              <td>€64,820</td>
+              <td>5%</td>
+            </tr>
+            <tr>
+              <td><span class="mini-chart chart-red">✗</span> Con errores</td>
+              <td>3</td>
+              <td>€15,200</td>
+              <td>1.2%</td>
+            </tr>
+            <tr style="font-weight: bold; background-color: #e8f5e8;">
+              <td>TOTAL</td>
+              <td>250</td>
+              <td>€1,260,520</td>
+              <td>100%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <strong>Próximos vencimientos:</strong><br>
+      • Pago de nóminas: 30 de julio<br>
+      • Declaraciones fiscales: 20 de julio<br>
+      • Pagos a la Seguridad Social: 25 de julio
+    `,
+        },
+
+        // Vacaciones - Respuesta con gráfico de barras
+        "vacaciones pendientes": {
+          respuesta: `
+      <strong>🏖️ Vacaciones Pendientes de Aprobación</strong>
+      
+      <div class="chat-chart">
+        <div class="chart-container">
+          <div class="chart-title">Solicitudes por Departamento</div>
+          
+          <div class="chart-bar">
+            <div class="chart-label">Ventas (8)</div>
+            <div class="chart-bar-value" style="width: 80%">
+              <span class="chart-value-text">8 solicitudes</span>
+            </div>
+          </div>
+          
+          <div class="chart-bar">
+            <div class="chart-label">IT (6)</div>
+            <div class="chart-bar-value" style="width: 60%">
+              <span class="chart-value-text">6 solicitudes</span>
+            </div>
+          </div>
+          
+          <div class="chart-bar">
+            <div class="chart-label">Marketing (5)</div>
+            <div class="chart-bar-value" style="width: 50%">
+              <span class="chart-value-text">5 solicitudes</span>
+            </div>
+          </div>
+          
+          <div class="chart-bar">
+            <div class="chart-label">Producción (4)</div>
+            <div class="chart-bar-value" style="width: 40%">
+              <span class="chart-value-text">4 solicitudes</span>
+            </div>
+          </div>
+          
+          <div class="chart-bar">
+            <div class="chart-label">Calidad (3)</div>
+            <div class="chart-bar-value" style="width: 30%">
+              <span class="chart-value-text">3 solicitudes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <strong>Solicitudes urgentes (esta semana):</strong><br>
+      1. Laura Méndez (Marketing) - 5 días<br>
+      2. Carlos Ruiz (IT) - 3 días<br>
+      3. Ana Torres (Ventas) - 7 días
+    `,
+        },
+
+        // Bajas médicas - Respuesta con tabla y mini gráfico
+        "bajas médicas": {
+          respuesta: `
+      <strong>🏥 Bajas Médicas Activas</strong>
+      
+      <div class="chat-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Empleado</th>
+              <th>Departamento</th>
+              <th>Tipo</th>
+              <th>Inicio</th>
+              <th>Fin Estimado</th>
+              <th>Días</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Roberto Díaz</td>
+              <td>IT</td>
+              <td><span class="mini-chart chart-orange">E</span> Enfermedad</td>
+              <td>01/07/2024</td>
+              <td>15/07/2024</td>
+              <td>14</td>
+            </tr>
+            <tr>
+              <td>Carmen Vidal</td>
+              <td>Producción</td>
+              <td><span class="mini-chart chart-red">A</span> Accidente</td>
+              <td>05/07/2024</td>
+              <td>20/07/2024</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>María López</td>
+              <td>Marketing</td>
+              <td><span class="mini-chart chart-green">F</span> Finalizada</td>
+              <td>25/06/2024</td>
+              <td>05/07/2024</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>Javier Gómez</td>
+              <td>Ventas</td>
+              <td><span class="mini-chart chart-green">F</span> Finalizada</td>
+              <td>20/06/2024</td>
+              <td>10/07/2024</td>
+              <td>20</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div style="margin-top: 15px; padding: 10px; background-color: #f8f9fa; border-radius: 8px;">
+        <strong>Resumen:</strong><br>
+        • Activas: 2 bajas<br>
+        • Finalizadas (último mes): 5 bajas<br>
+        • Promedio de duración: 12 días<br>
+        • Coste estimado: €8,500
+      </div>
+    `,
+        },
+
+        // Contrataciones - Respuesta con tabla de seguimiento
+        contrataciones: {
+          respuesta: `
+      <strong>📋 Proceso de Contratación Activo</strong>
+      
+      <div class="chat-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Posición</th>
+              <th>Departamento</th>
+              <th>Estado</th>
+              <th>Candidatos</th>
+              <th>Progreso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Desarrollador Full-Stack</td>
+              <td>IT</td>
+              <td><span class="mini-chart chart-green">F</span> Final</td>
+              <td>2</td>
+              <td>
+                <div style="width: 100%; background-color: #e0e0e0; border-radius: 10px;">
+                  <div style="width: 90%; height: 8px; background-color: #2ecc71; border-radius: 10px;"></div>
+                </div>
+                90%
+              </td>
+            </tr>
+            <tr>
+              <td>Representante Ventas</td>
+              <td>Ventas</td>
+              <td><span class="mini-chart chart-orange">E</span> Entrevistas</td>
+              <td>3</td>
+              <td>
+                <div style="width: 100%; background-color: #e0e0e0; border-radius: 10px;">
+                  <div style="width: 60%; height: 8px; background-color: #3498db; border-radius: 10px;"></div>
+                </div>
+                60%
+              </td>
+            </tr>
+            <tr>
+              <td>Técnico de Calidad</td>
+              <td>Calidad</td>
+              <td><span class="mini-chart chart-blue">S</span> Seleccionado</td>
+              <td>1</td>
+              <td>
+                <div style="width: 100%; background-color: #e0e0e0; border-radius: 10px;">
+                  <div style="width: 100%; height: 8px; background-color: #0f5c00; border-radius: 10px;"></div>
+                </div>
+                100%
+              </td>
+            </tr>
+            <tr>
+              <td>Analista Marketing</td>
+              <td>Marketing</td>
+              <td><span class="mini-chart chart-purple">R</span> Revisión CV</td>
+              <td>15</td>
+              <td>
+                <div style="width: 100%; background-color: #e0e0e0; border-radius: 10px;">
+                  <div style="width: 30%; height: 8px; background-color: #9b59b6; border-radius: 10px;"></div>
+                </div>
+                30%
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div style="margin-top: 15px;">
+        <strong>📅 Próximas entrevistas:</strong><br>
+        • 15/07: 3 entrevistas para IT<br>
+        • 16/07: 2 entrevistas para Ventas<br>
+        • 18/07: 4 entrevistas para Marketing
+      </div>
+    `,
+        },
+
+        // ... el resto de respuestas permanecen igual o puedes modificarlas también ...
+
+        "empleados por departamento": {
+          respuesta:
+            "Distribución de empleados por departamento:<br><br>• Producción: 85 empleados<br>• Ventas: 45 empleados<br>• IT: 35 empleados<br>• Marketing: 42 empleados<br>• Calidad: 40 empleados<br>• RRHH: 12 empleados<br>• Finanzas: 18 empleados<br>• Logística: 22 empleados",
+        },
+
+        "solicitudes de vacaciones": {
+          respuesta:
+            "Hay <strong>8 solicitudes de vacaciones pendientes</strong> de aprobación.<br><br>Detalle de solicitudes:<br>• Laura Méndez (Marketing) - 5 días (del 15 al 19 de julio)<br>• Carlos Ruiz (IT) - 3 días (del 22 al 24 de julio)<br>• Ana Torres (Ventas) - 7 días (del 5 al 13 de agosto)<br>• Miguel Ángel (Producción) - 10 días (del 1 al 12 de agosto)<br>• Elena Castro (Calidad) - 4 días (del 8 al 11 de julio)",
+        },
+
+        nóminas: {
+          respuesta:
+            "Estado actual de nóminas:<br><br>• Junio: Completadas (100%)<br>• Julio: Programadas para el 30 de julio<br>• Agosto: En preparación<br><br>Próximos vencimientos:<br>• Pago de nóminas: 30 de julio<br>• Declaraciones fiscales: 20 de julio<br>• Pagos a la Seguridad Social: 25 de julio",
+        },
+
+        "formaciones programadas": {
+          respuesta:
+            "Próximas formaciones programadas:<br><br>1. <strong>Liderazgo Efectivo</strong><br>   - Fechas: 20-21 de julio<br>   - Plazas: 15/15 (completo)<br>   - Formador: Dra. Elena Martínez<br><br>2. <strong>Seguridad Informática</strong><br>   - Fechas: 25-26 de julio<br>   - Plazas: 18/20 disponibles<br>   - Formador: Ing. Carlos López<br><br>3. <strong>Gestión del Tiempo</strong><br>   - Fechas: 1-2 de agosto<br>   - Plazas: 22/25 disponibles<br>   - Formador: Coach Ana Torres",
+        },
+
+        incidencias: {
+          respuesta:
+            "Actualmente hay <strong>3 incidencias activas</strong> en el sistema:<br><br>• Baja médica de Roberto Díaz (IT) - hasta el 15 de julio<br>• Equipo defectuoso en Producción - reportado hoy<br>• Problema de acceso al sistema de nóminas - resuelto<br><br>Incidencias resueltas en los últimos 7 días: 8",
+        },
+
+        // Por defecto
+        default: {
+          respuesta:
+            'He entendido que preguntas sobre <strong>"{query}"</strong>. Como asistente de RRHH, puedo ayudarte con:<br><br>• Información sobre empleados (activos, por departamento)<br>• Estado de nóminas y pagos<br>• Gestión de vacaciones y ausencias<br>• Formaciones y desarrollo profesional<br>• Procesos de contratación<br>• Incidencias y bajas médicas<br><br>¿Puedes reformular tu pregunta para que pueda darte una respuesta más precisa?',
+        },
+      };
       // Elementos del DOM
-      const chatMessages = document.querySelector('.chat-messages');
-      const messageInput = document.getElementById('messageInput');
-      const sendButton = document.getElementById('sendButton');
-      const typingIndicator = document.getElementById('typingIndicator');
-      const suggestionButtons = document.querySelectorAll('.suggestion-btn');
+      const chatMessages = document.querySelector(".chat-messages");
+      const messageInput = document.getElementById("messageInput");
+      const sendButton = document.getElementById("sendButton");
+      const typingIndicator = document.getElementById("typingIndicator");
+      const suggestionButtons = document.querySelectorAll(".suggestion-btn");
 
       // Función para obtener la hora actual
       function getCurrentTime() {
         const now = new Date();
         let hours = now.getHours();
         let minutes = now.getMinutes();
-        const ampm = hours >= 12 ? 'PM' : 'AM';
+        const ampm = hours >= 12 ? "PM" : "AM";
         hours = hours % 12;
         hours = hours ? hours : 12;
-        minutes = minutes < 10 ? '0' + minutes : minutes;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
         return `${hours}:${minutes} ${ampm}`;
       }
 
       // Función para crear un elemento de mensaje
       function createMessageElement(content, isUser = false) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `chat-message ${isUser ? 'user' : 'assistant'}-message mb-4 new`;
-        
-        const messageBubble = document.createElement('div');
+        const messageDiv = document.createElement("div");
+        messageDiv.className = `chat-message ${isUser ? "user" : "assistant"}-message mb-4 new`;
+
+        const messageBubble = document.createElement("div");
         messageBubble.style.cssText = `
-          background: ${isUser ? '#e7e8eb;' : '#E7E8EB'};
-          color: ${isUser ? '#333' : 'black'};
+          background: ${isUser ? "#e7e8eb;" : "#E7E8EB"};
+          color: ${isUser ? "#333" : "black"};
           padding: 15px;
           border-radius: 15px;
           max-width: 80%;
-          ${isUser ? 'margin-left: auto; margin-right: 0;' : 'margin-left: 0;'}
+          ${isUser ? "margin-left: auto; margin-right: 0;" : "margin-left: 0;"}
         `;
-        
-        const messageHeader = document.createElement('div');
+
+        const messageHeader = document.createElement("div");
         messageHeader.style.cssText = `
           font-weight: bold;
           margin-bottom: 5px;
-          ${isUser ? 'text-align: right;' : ''}
+          ${isUser ? "text-align: right;" : ""}
         `;
-        
+
         if (isUser) {
           messageHeader.innerHTML = 'Juan Moleres <i class="ti-user"></i>';
         } else {
           messageHeader.innerHTML = '<i class="ti-robot"></i> Asistente RRHH';
         }
-        
-        const messageContent = document.createElement('div');
-        messageContent.className = 'message-content';
+
+        const messageContent = document.createElement("div");
+        messageContent.className = "message-content";
         messageContent.innerHTML = content;
-        
-        const messageTime = document.createElement('div');
+
+        const messageTime = document.createElement("div");
         messageTime.style.cssText = `
           font-size: 11px;
           opacity: 0.8;
           margin-top: 5px;
-          ${isUser ? 'text-align: right;' : ''}
+          ${isUser ? "text-align: right;" : ""}
         `;
-        
-        const timeSpan = document.createElement('span');
-        timeSpan.className = 'time';
+
+        const timeSpan = document.createElement("span");
+        timeSpan.className = "time";
         timeSpan.textContent = getCurrentTime();
         messageTime.appendChild(timeSpan);
-        
+
         messageBubble.appendChild(messageHeader);
         messageBubble.appendChild(messageContent);
         messageBubble.appendChild(messageTime);
         messageDiv.appendChild(messageBubble);
-        
+
         return messageDiv;
       }
 
@@ -966,27 +1227,27 @@
       // Función para encontrar respuesta en la base de conocimiento
       function findResponse(query) {
         query = query.toLowerCase().trim();
-        
+
         // Buscar coincidencias exactas o parciales
         for (const key in knowledgeBase) {
           if (query.includes(key)) {
             return knowledgeBase[key].respuesta;
           }
         }
-        
+
         // Si no encuentra, usar respuesta por defecto
         return knowledgeBase.default.respuesta.replace("{query}", query);
       }
 
       // Función para mostrar el indicador de escritura
       function showTypingIndicator() {
-        typingIndicator.classList.add('active');
+        typingIndicator.classList.add("active");
         scrollToBottom();
       }
 
       // Función para ocultar el indicador de escritura
       function hideTypingIndicator() {
-        typingIndicator.classList.remove('active');
+        typingIndicator.classList.remove("active");
       }
 
       // Función para procesar el mensaje del usuario
@@ -995,63 +1256,69 @@
         const userMessageElement = createMessageElement(message, true);
         chatMessages.appendChild(userMessageElement);
         scrollToBottom();
-        
+
         // Mostrar que la IA está escribiendo
         showTypingIndicator();
-        
+
         // Simular tiempo de respuesta (1-2 segundos)
-        setTimeout(() => {
-          // Ocultar indicador de escritura
-          hideTypingIndicator();
-          
-          // Obtener respuesta
-          const response = findResponse(message);
-          
-          // Añadir respuesta de la IA
-          const assistantMessageElement = createMessageElement(response, false);
-          chatMessages.appendChild(assistantMessageElement);
-          scrollToBottom();
-        }, 1000 + Math.random() * 1000);
+        setTimeout(
+          () => {
+            // Ocultar indicador de escritura
+            hideTypingIndicator();
+
+            // Obtener respuesta
+            const response = findResponse(message);
+
+            // Añadir respuesta de la IA
+            const assistantMessageElement = createMessageElement(
+              response,
+              false,
+            );
+            chatMessages.appendChild(assistantMessageElement);
+            scrollToBottom();
+          },
+          1000 + Math.random() * 1000,
+        );
       }
 
       // Evento para el botón de enviar
-      sendButton.addEventListener('click', () => {
+      sendButton.addEventListener("click", () => {
         const message = messageInput.value.trim();
         if (message) {
           processUserMessage(message);
-          messageInput.value = '';
+          messageInput.value = "";
           messageInput.focus();
         }
       });
 
       // Evento para la tecla Enter
-      messageInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
+      messageInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
           const message = messageInput.value.trim();
           if (message) {
             processUserMessage(message);
-            messageInput.value = '';
+            messageInput.value = "";
           }
         }
       });
 
       // Evento para los botones de sugerencia
-      suggestionButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const question = button.getAttribute('data-question');
+      suggestionButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const question = button.getAttribute("data-question");
           messageInput.value = question;
           processUserMessage(question);
-          messageInput.value = '';
+          messageInput.value = "";
         });
       });
 
       // Inicializar la hora actual en los mensajes existentes
-      document.addEventListener('DOMContentLoaded', () => {
-        const timeElements = document.querySelectorAll('.time');
-        timeElements.forEach(el => {
+      document.addEventListener("DOMContentLoaded", () => {
+        const timeElements = document.querySelectorAll(".time");
+        timeElements.forEach((el) => {
           el.textContent = getCurrentTime();
         });
-        
+
         // Hacer scroll al final del chat al cargar
         setTimeout(scrollToBottom, 100);
       });

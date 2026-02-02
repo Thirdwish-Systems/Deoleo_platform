@@ -19426,3 +19426,212 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     opacity: 1;
     transform: translateY(0); /* Vuelve a su sitio */
   }
+
+
+    
+      /* Indicador de que la IA está escribiendo */
+      .typing-indicator {
+        display: none;
+        margin-left: 0;
+        margin-bottom: 20px;
+      }
+
+      .typing-indicator.active {
+        display: block;
+      }
+
+      .typing-dots {
+        display: inline-flex;
+        background: #0f5c00;
+        color: white;
+        padding: 15px;
+        border-radius: 15px;
+        max-width: 80%;
+      }
+
+      .typing-dots span {
+        width: 8px;
+        height: 8px;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 2px;
+        animation: typing 1.5s infinite ease-in-out;
+      }
+
+      .typing-dots span:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      .typing-dots span:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .typing-dots span:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes typing {
+        0%,
+        60%,
+        100% {
+          transform: translateY(0);
+          background-color: rgba(255, 255, 255, 0.7);
+        }
+        30% {
+          transform: translateY(-5px);
+          background-color: white;
+        }
+      }
+
+      /* Efecto para los botones de sugerencia */
+      .suggestion-btn {
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .suggestion-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Mejoras para el área del chat */
+      .chat-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .chat-messages {
+        flex: 1;
+        overflow-y: auto;
+      }
+
+      /* Estilo para mensajes nuevos */
+      .chat-message.new {
+        animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Mejora para el input */
+      #messageInput:focus {
+        box-shadow: 0 0 0 3px rgba(15, 92, 0, 0.1);
+        border-color: #0a4700;
+      }
+
+      /* Estilos para tablas en respuestas del chat */
+      .chat-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+        font-size: 14px;
+      }
+
+      .chat-table th {
+        background-color: #0f5c00;
+        color: white;
+        padding: 10px;
+        text-align: left;
+        font-weight: bold;
+      }
+
+      .chat-table td {
+        padding: 10px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .chat-table tr:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+
+      .chat-table tr:hover {
+        background-color: #e8f5e8;
+      }
+
+      /* Estilos para gráficos simulados */
+      .chat-chart {
+        width: 100%;
+        margin: 15px 0;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .chart-container {
+        position: relative;
+        padding: 15px;
+        background-color: white;
+      }
+
+      .chart-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #0f5c00;
+      }
+
+      .chart-bar {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .chart-label {
+        width: 120px;
+        font-size: 13px;
+      }
+
+      .chart-bar-value {
+        flex: 1;
+        height: 20px;
+        background: linear-gradient(90deg, #0f5c00, #2ecc71);
+        border-radius: 10px;
+        position: relative;
+      }
+
+      .chart-value-text {
+        position: absolute;
+        right: -50px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #0f5c00;
+      }
+
+      /* Estilo para mini gráficos circulares */
+      .mini-chart {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        margin-right: 8px;
+        font-size: 10px;
+        color: white;
+        font-weight: bold;
+      }
+
+      .chart-green {
+        background-color: #2ecc71;
+      }
+      .chart-blue {
+        background-color: #3498db;
+      }
+      .chart-orange {
+        background-color: #e67e22;
+      }
+      .chart-red {
+        background-color: #e74c3c;
+      }
+      .chart-purple {
+        background-color: #9b59b6;
+      }
+    
