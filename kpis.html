@@ -253,8 +253,6 @@
                 </li>
               </ul>
             </li>
-
-            <!--             <li class="nav-label">Gestión de Personal</li>
             <li>
               <a
                 class="has-arrow"
@@ -402,7 +400,8 @@
                 <li><a href="#">Informes</a></li>
                 <li><a href="#">Plantillas</a></li>
               </ul>
-            </li> -->
+            </li>
+            -->
           </ul>
         </div>
       </div>
@@ -469,8 +468,51 @@
                       <option value="all">Ambos</option>
                       <option value="h">Hombre</option>
                       <option value="m">Mujer</option>
-                      <option value="nb">No binario</option>
+                      <option value="nb">Otro</option>
                     </select>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div
+                    class="col-12"
+                    style="display: flex; justify-content: flex-end"
+                  >
+                    <button
+                      type="button"
+                      id="btnExportExcel"
+                      style="
+                        background-color: #0e5300;
+                        color: white;
+                        border: none;
+                        padding: 8px 20px;
+                        border-radius: 4px;
+                        font-weight: 500;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        cursor: pointer;
+                      "
+                      onmouseover="this.style.backgroundColor = '#157a00'"
+                      onmouseout="this.style.backgroundColor = '#0E5300'"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M5.884 6.68a.5.5 0 1 0-.768.64L7.349 10l-2.233 2.68a.5.5 0 0 0 .768.64L8 10.781l2.116 2.54a.5.5 0 0 0 .768-.641L8.651 10l2.233-2.68a.5.5 0 0 0-.768-.64L8 9.219l-2.116-2.54z"
+                        />
+                        <path
+                          d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"
+                        />
+                      </svg>
+
+                      Exportar Excel
+                    </button>
                   </div>
                 </div>
               </div>
